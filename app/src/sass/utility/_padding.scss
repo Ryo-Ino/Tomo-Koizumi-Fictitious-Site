@@ -1,0 +1,21 @@
+//padding
+@for $i from 0 through 10 {
+  .u-pdt-#{$i * 10} {
+      padding-top: #{$i * 10}px;
+  }
+}
+@for $i from 0 through 10 {
+  .u-pdl-#{$i * 10} {
+      padding-left: #{$i * 10}px;
+  }
+}
+@for $i from 0 through 10 {
+  .u-pdr-#{$i * 10} {
+      padding-right: #{$i * 10}px;
+  }
+}
+@for $i from 0 through 10 {
+  .u-pdb-#{$i * 10} {
+      padding-bottom: #{$i * 10}px;
+  }
+}

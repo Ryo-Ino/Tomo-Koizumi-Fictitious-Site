@@ -1,0 +1,46 @@
+.p-form {
+    margin: 128px 0;
+    padding: 0 40px;
+    max-width: $responsive-md;
+    @media screen and(max-width: $responsive-md) {
+        padding: 0 20px;
+        width: 100%;
+    }
+    &-item {
+        margin-bottom: 40px;
+        width: 100%;
+        &__title {
+            display: block;
+            margin-bottom: 20px;
+            padding: 5px 20px;
+            width: 100%;
+            border-bottom: 1px $color-main solid;
+            font-size: 1rem;
+            @media screen and(max-width: $responsive-md) {
+                text-align: center;
+            }
+        }
+        &__input {
+            padding: 8px;
+            width: 100%;
+            border: 1px $color-main solid;
+            font-size: .8rem;
+            outline: none;
+            transition: .4s;
+            @media screen and(max-width: $responsive-md) {
+                font-size: 1rem;
+            }
+        }
+        &__input--mess {
+            height: 8rem;
+        }
+        &__error {
+            margin-top: 8px;
+            color: $color-error;
+        }
+    }
+    &-submit {
+        margin: 40px 0;
+        font-size: 1rem;
+    }
+}

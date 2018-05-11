@@ -1,0 +1,20 @@
+.l-header {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    padding: 20px 40px;
+    z-index: 50;
+    @media screen and (max-width: $responsive-md) {
+        padding: 5px 20px;
+    }
+    &-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        width: 100%;
+    }
+}

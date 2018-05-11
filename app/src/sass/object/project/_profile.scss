@@ -1,0 +1,131 @@
+.p-profile {
+    margin: 128px 0;
+    padding: 0 40px;
+    width: 100%;
+    @media screen and (max-width: $responsive-md) {
+        padding: 0 20px;
+    }
+    &-section {
+        margin-bottom: 88px;
+        @media screen and (max-width: $responsive-md) {
+            margin-bottom: 56px;
+        }
+    }
+    &-section:last-child {
+        margin-bottom: 0;
+    }
+    &-main {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        position: relative;
+        @media screen and(max-width: $responsive-md) {
+            flex-flow: column;
+        }
+        &__box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            @media screen and (max-width: $responsive-md) {
+                width: 100%;
+            }
+        }
+        &__box:first-child {
+            @media screen and (max-width: $responsive-md) {
+                margin-bottom: 1.5rem;
+            }
+        }
+        &__title {
+            text-align: center;
+            border-bottom: 1px $color-main solid;
+            font-family: $serif;
+            font-size: 1.6rem;
+            line-height: 1.5rem;
+            z-index: 2;
+            @media screen and (max-width: $responsive-md) {
+                font-size: 1.2rem;
+            }
+        }
+        &__image {
+            text-align: center;
+            width: 100%;
+            max-width: 560px;
+            min-width: 280px;
+            box-shadow: 0px 24px 16px -16px $color-tspt02;
+        }
+    }
+    &-overview {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        transition: .4s;
+        @media screen and (max-width: $responsive-md) {
+            flex-flow: column;
+        }
+        &__box {
+            width: 50%;
+            @media screen and (max-width: $responsive-md) {
+                width: 100%;
+            }
+        }
+        &__box:first-child {
+            margin-right: 32px;
+            @media screen and (max-width: $responsive-md) {
+                margin-right: auto;
+                margin-bottom: 16px;
+            }
+        }
+        &__description {
+            padding: 5px;
+            line-height: 1.8rem;
+            letter-spacing: 1.6pt;
+            font-size: 1rem;
+            @media screen and (max-width: $responsive-md) {
+                font-size: .8rem;
+                line-height: 1.5rem;
+            }
+        }
+    }
+    &-publish {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        @media screen and (max-width: $responsive-md) {
+            display: flex;
+            flex-flow: column;
+        }
+        &__box {
+            padding-bottom: 5px;
+            width: 50%;
+            @media screen and (max-width: $responsive-md) {
+                width: 100%;
+            }
+        }
+        &__box:first-child {
+            margin-right: 32px;
+            @media screen and (max-width: $responsive-md) {
+                margin-right: auto;
+                margin-bottom: 16px;
+            }
+        }
+        &__title {
+            margin-bottom: 8px;
+            padding: 4px 8px;
+            border-bottom: 1px $color-main solid;
+            font-size: 1.2rem;
+            @media screen and(max-width: $responsive-md) {
+                font-size: 1rem;
+            }
+        }
+        &__text {
+            padding-left: 8px;
+            line-height: 1.5rem;
+            font-size: .8rem;
+            @media screen and(max-width: $responsive-md) {
+                line-height: 1rem;
+                font-size: .6rem;
+            }
+        }
+    }
+}

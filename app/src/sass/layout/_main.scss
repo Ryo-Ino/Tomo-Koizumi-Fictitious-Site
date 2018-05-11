@@ -1,0 +1,8 @@
+.l-main {
+    margin: 0 auto;
+    padding-top: $top-margin01;
+    width: 100%;
+    @media screen and(max-width: $responsive-md) {
+        padding-top: $top-margin02;
+    }
+}

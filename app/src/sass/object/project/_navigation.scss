@@ -1,0 +1,177 @@
+.p-nav {
+    position: fixed;
+    top: 36px;
+    right: 40px;
+    z-index: 30;
+    transition: .4s;
+    @media screen and (max-width: $responsive-md) {
+        top: 16px;
+        right: 20px;
+    }
+    &-menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media screen and (max-width: $responsive-md) {
+            display: none;
+        }
+        &__item {
+            margin-right: 40px;
+        }
+        &__item:last-child {
+            margin-right: 0;
+        }
+        &__text {
+            font-size: 1rem;
+        }
+        &__sns {
+            font-size: 1rem;
+        }
+        &__word--works {
+            display: none;
+        }
+        &__word--home {
+            display: none;
+        }
+    }
+    &-hambtn {
+        display: none;
+        @media screen and (max-width: $responsive-md) {
+            display: inline-block;
+            position: relative;
+            width: 24px;
+            height: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: .4s;
+        }
+        &__ber {
+            position: absolute;
+            display: inline-block;
+            width: 100%;
+            height: 2px;
+            border-radius: 1px;
+            background: $color-main;
+            transition: all .4s;
+        }
+        &__ber:nth-of-type(1) {
+            top: 0;
+            left: 0;
+        }
+        &__ber:nth-of-type(2) {
+            top: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        &__ber:nth-of-type(2)::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+            width: 100%;
+            height: 2px;
+            border-radius: 1px;
+            background-color: $color-main;
+            transition: all .4s;
+        }
+        &__ber:nth-of-type(3) {
+            left: 0;
+            bottom: 0;
+        }
+    }
+}
+
+//state
+.p-nav-hambtn.is-active {
+    .p-nav-hambtn__ber:nth-of-type(1) {
+        background-color: $color-main;
+        transform: translateY(-10px) scale(0);
+        transition-delay: .2s;
+    }
+    .p-nav-hambtn__ber:nth-of-type(2) {
+        background-color: $color-main;
+        transform: rotateZ(45deg);
+        transition-delay: .4s;
+    }
+    .p-nav-hambtn__ber:nth-of-type(2)::after {
+        background-color: $color-main;
+        transform: rotateZ(90deg);
+        transition-delay: .4s;
+    }
+    .p-nav-hambtn__ber:nth-of-type(3) {
+        background-color: $color-main;
+        transform: translateY(-10px) scale(0);
+    }
+}
+
+.p-sidebar {
+    display: none;
+    @media screen and (max-width: $responsive-md) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: -100%;
+        right: 0;
+        padding: 20px;
+        width: 100%;
+        height: 100%;
+        background: $color-base;
+        transition: .4s;
+        z-index: 20;
+    }
+    &-menu {
+        &__item {
+            text-align: center;
+            margin-bottom: 4.5rem;
+            font-size: 1.2rem;
+            transition: .4s;
+        }
+        &__item:nth-of-type(1) {
+            transform: translateY(96px) scale(0);
+        }
+        &__item:nth-of-type(2) {
+            transform: translateY(96px) scale(0);
+        }
+        &__item:nth-of-type(3) {
+            transform: translateY(96px) scale(0);
+            margin-bottom: 0;
+        }
+    }
+    &-sns {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        position: absolute;
+        bottom: 0;
+        padding: 20px;
+        width: 100%;
+        &__item {
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    }
+}
+
+//state
+.p-sidebar.is-active {
+    top: 0;
+    transition-delay: .4s;
+    .p-sidebar-menu {
+        .p-sidebar-menu__item:nth-of-type(1) {
+            transform: translateY(0) scale(1);
+            transition-delay: .8s;
+        }
+        .p-sidebar-menu__item:nth-of-type(2) {
+            transform: translateY(0) scale(1);
+            transition-delay: 1s;
+        }
+        .p-sidebar-menu__item:nth-of-type(3) {
+            transform: translateY(0) scale(1);
+            transition-delay: 1.2s;
+        }
+    }
+}

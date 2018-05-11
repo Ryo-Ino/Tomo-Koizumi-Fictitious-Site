@@ -1,0 +1,223 @@
+.p-moreproject {
+    margin: 128px 0;
+    position: relative;
+    padding: 0 40px;
+    @media screen and(max-width: $responsive-md) {
+        padding: 0 20px;
+    }
+    &-section {
+        margin-bottom: 128px;
+        &__title {
+            border-bottom: 1px $color-main solid;
+            font-size: 1.2rem;
+            @media screen and (max-width: $responsive-md) {
+                text-align: center;
+            }
+        }
+    }
+    &-section:nth-child(3) {
+        margin-bottom: 0;
+    }
+    &-body {
+        padding-top: 40px;
+        width: 100%;
+    }
+    &-article {
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        vertical-align: middle;
+        margin-bottom: 40px;
+        padding: 20px;
+        width: 33.3333333333%;
+        transition: .4s;
+        @media screen and (max-width: $responsive-lg) {
+            width: 50%;
+        }
+        @media screen and (max-width: $responsive-md) {
+            width: 100%;
+        }
+        &__image {
+            display: block;
+            margin: 0 auto;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 320px;
+            cursor: pointer;
+            transition: .4s;
+        }
+        &__title {
+            text-align: center;
+            margin-top: 1rem;
+            line-height: 1rem;
+            font-size: .8rem;
+            letter-spacing: 1.6pt;
+            transition: .4s;
+        }
+    }
+    &-modal {
+        position: fixed;
+        top: -100%;
+        right: 0;
+        left: 0;
+        margin: auto;
+        padding: $top-margin01 40px 104px;
+        width: 100%;
+        height: 100%;
+        background-color: $color-base;
+        z-index: 40;
+        opacity: 0;
+        transition: 1.2s;
+        @media screen and (max-width: $responsive-md) {
+            padding: $top-margin02 20px 84px;
+        }
+        &__body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        &__body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            background-color: $color-base;
+            z-index: 41;
+            transition: .4s;
+            transform: scale(0, 1);
+        }
+        &__body.is-cover::before {
+            animation-name: cover;
+            animation-duration: 1.2s;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-out;
+            @keyframes cover {
+                0% {
+                    transform: scale(0, 1);
+                }
+                50% {
+                    transform: scale(1, 1);
+                }
+                100% {
+                    transform: scale(0, 1);
+                }
+            }
+        }
+        &__wrap {
+            display: none;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        &__image {
+            display: block;
+            @include middle();
+            margin: auto;
+            padding-top: 16px;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+            transition: .4s;
+        }
+        &__cross {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+        &__bar {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 2px;
+            height: 100%;
+            background-color: $color-main;
+        }
+        &__bar:nth-child(1) {
+            transform: rotateZ(45deg);
+        }
+        &__bar:nth-child(2) {
+            transform: rotateZ(-45deg);
+        }
+        &__switch {
+            position: absolute;
+            right: 0;
+            bottom: 24px;
+            left: 0;
+            text-align: center;
+            background-color: $color-base;
+            z-index: 42;
+            transition: .4s;
+            @media screen and(max-width: $responsive-md) {
+                bottom: 16px;
+            }
+        }
+        &__btn {
+            position: relative;
+            width: 48px;
+            height: 48px;
+            font-size: .8rem;
+        }
+        &__btn:first-child {
+            margin-right: 56px;
+            @media screen and(max-width: $responsive-md) {
+                margin-right: 16px;
+            }
+        }
+        &__btn:last-child {
+            margin-left: 56px;
+            @media screen and(max-width: $responsive-md) {
+                margin-left: 16px;
+            }
+        }
+        &__arrow {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 24px;
+            height: 24px;
+            border-left: 1px solid $color-main;
+            border-bottom: 1px solid $color-main;
+            @media screen and(max-width: $responsive-md) {
+                width: 16px;
+                height: 16px;
+            }
+        }
+        &__arrow--leftward {
+            left: 24px;
+            transform: rotate(45deg);
+            @media screen and(max-width: $responsive-md) {
+                left: 16px;
+            }
+        }
+        &__arrow--rightward {
+            right: 24px;
+            transform: rotate(-135deg);
+            @media screen and(max-width: $responsive-md) {
+                right: 16px;
+            }
+        }
+    }
+    .p-moreproject-modal.is-show {
+        top: 0;
+        opacity: 1;
+    }
+}

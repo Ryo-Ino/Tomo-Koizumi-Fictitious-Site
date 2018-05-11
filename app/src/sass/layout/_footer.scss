@@ -1,0 +1,17 @@
+.l-footer {
+    position: absolute;
+    bottom: 0;
+    padding: 1rem 40px;
+    width: auto;
+    height: 44px;
+    @media screen {
+        padding: 1rem 20px;
+        widows: 50%;
+    }
+    &-copyright {
+        &__text {
+            color: $color-main;
+            font-size: .5rem;
+        }
+    }
+}
