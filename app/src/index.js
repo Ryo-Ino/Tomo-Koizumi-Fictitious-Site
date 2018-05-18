@@ -64,14 +64,39 @@ const globalMixIn = {
 
 Vue.mixin(globalMixIn);
 
+//ローディング
+let loader = document.getElementById('loader');
+
+function opacity() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('success');
+            reject('error');
+            loader.style.opacity = '0';
+        }, 2000);
+    });
+}
+
+function display() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('success');
+            reject('error');
+            loader.style.display = 'none';
+        }, 500);
+    });
+}
+window.onload = function() {
+    opacity().then(display);
+}
+
 new Vue({
     store,
     router,
     render: h => h(App)
 }).$mount('#app');
 
-
-// ローディング用のオーバーレイを付ける
+//ページ遷移時オーバーレイを付ける
 router.beforeEach((to, from, next) => {
     store.commit('start');
     next();
@@ -81,4 +106,4 @@ router.afterEach((to, from) => {
     setTimeout(() => {
         store.commit('end');
     }, 1200);
-});
+})

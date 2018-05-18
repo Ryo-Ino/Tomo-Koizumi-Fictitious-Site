@@ -1,7 +1,5 @@
 <template><div>
 
-<loading-view></loading-view>
-
 <div id="wrap" @scroll="handleScroll">
 
 <hero-view></hero-view>
@@ -34,7 +32,6 @@ import HeaderView from './components/globals/header.vue';
 import FooterView from './components/globals/footer.vue';
 import HeroView from './components/globals/hero.vue';
 import ScrollView from './components/globals/scrollTop.vue';
-import LoadingView from './components/globals/loading.vue';
 import NavigationView from './components/globals/navigation.vue';
 import TransView from './components/globals/trans.vue';
 
@@ -44,7 +41,6 @@ export default {
     'footer-view': FooterView,
     'hero-view': HeroView,
     'scroll-view': ScrollView,
-    'loading-view': LoadingView,
     'navigation-view': NavigationView,
     'trans-view': TransView
   },
@@ -52,6 +48,14 @@ export default {
     return{
       scrollY: 0
     }
+  },
+  mounted: function(){
+    window.addEventListener('scroll', this.handleScroll);
+
+    window.onorientationchange = function(){
+      location.reload();
+    };
+
   },
   methods:{
     handleScroll() {
@@ -70,14 +74,6 @@ export default {
         display[i].style.transform = 'scale(1,1)';
       }
     },
-  },
-  mounted: function(){
-    window.addEventListener('scroll', this.handleScroll);
-
-    window.onorientationchange = function(){
-      location.reload();
-    };
-
   }
 }
 </script>

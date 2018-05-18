@@ -10,9 +10,6 @@
         &__title {
             border-bottom: 1px $color-main solid;
             font-size: 1.2rem;
-            @media screen and (max-width: $responsive-md) {
-                text-align: center;
-            }
         }
     }
     &-section:nth-child(3) {
@@ -43,13 +40,15 @@
             width: auto;
             max-width: 100%;
             height: auto;
-            max-height: 320px;
+            max-height: 280px;
+            box-shadow: 0 8px 4px -4px $color-tspt02;
             cursor: pointer;
             transition: .4s;
         }
         &__title {
             text-align: center;
             margin-top: 1rem;
+            padding: .5rem;
             line-height: 1rem;
             font-size: .8rem;
             letter-spacing: 1.6pt;

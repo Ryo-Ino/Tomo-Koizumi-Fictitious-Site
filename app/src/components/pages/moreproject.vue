@@ -9,7 +9,7 @@
     
     <div class="p-moreproject-body">
 
-      <article class="p-moreproject-article" v-for="image in imgMd01">
+      <article class="p-moreproject-article" v-for="image in imgsMd01">
         <img class="p-moreproject-article__image" :data-cate="image.cate" :data-index="image.index"  :src="image.src" alt="" @click="modal">
         <h3 class="p-moreproject-article__title">{{ image.title }}</h3>
       </article>
@@ -23,7 +23,7 @@
 
     <div class="p-moreproject-body">
 
-      <article class="p-moreproject-article" v-for="image in imgMd02">
+      <article class="p-moreproject-article" v-for="image in imgsMd02">
         <img class="p-moreproject-article__image" :data-cate="image.cate" :data-index="image.index" :src="image.src" alt="" @click="modal">
         <h3 class="p-moreproject-article__title">{{ image.title }}</h3>
       </article>
@@ -37,7 +37,7 @@
 
     <div class="p-moreproject-body">
 
-      <article class="p-moreproject-article" v-for="image in imgMd03">
+      <article class="p-moreproject-article" v-for="image in imgsMd03">
         <img class="p-moreproject-article__image" :data-cate="image.cate" :data-index="image.index" :src="image.src" alt="" @click="modal">
         <h3 class="p-moreproject-article__title">{{image.title}}</h3>
       </article>
@@ -47,19 +47,19 @@
   </section>
 
   <div class="p-moreproject-modal" :class="{'is-show': isShow}"> 
-    <div class="p-moreproject-modal__body" :class="{'is-cover': isCover}">
-      <div class="p-moreproject-modal__wrap js-cate-colection" :data-cate="image.cate" :data-index="image.index" v-for="image in imgLg01"> 
+    <div class="p-moreproject-modal__body" ref="modBody" :class="{'is-cover': isCover}">
+      <article class="p-moreproject-modal__wrap js-cate-colection" :data-cate="image.cate" :data-index="image.index" v-for="image in imgsLg01"> 
         <img class="p-moreproject-modal__image" :src="image.src" alt="">
         <h3 class="p-moreproject-modal__title"></h3>
-      </div>
-       <div class="p-moreproject-modal__wrap js-cate-archive" :data-cate="image.cate" :data-index="image.index" v-for="image in imgLg02"> 
+      </article>
+       <article class="p-moreproject-modal__wrap js-cate-archive" :data-cate="image.cate" :data-index="image.index" v-for="image in imgsLg02"> 
         <img class="p-moreproject-modal__image" :src="image.src" alt="">
         <h3 class="p-moreproject-modal__title"></h3>
-      </div>
-       <div class="p-moreproject-modal__wrap js-cate-costume" :data-cate="image.cate" :data-index="image.index" v-for="image in imgLg03"> 
+      </article>
+       <article class="p-moreproject-modal__wrap js-cate-costume" :data-cate="image.cate" :data-index="image.index" v-for="image in imgsLg03"> 
         <img class="p-moreproject-modal__image" :src="image.src" alt="">
         <h3 class="p-moreproject-modal__title"></h3>
-      </div>
+      </article>
     </div>    
     <div class="p-moreproject-modal__cross" @click="hide">
       <span class="p-moreproject-modal__bar"></span>
@@ -85,7 +85,7 @@
 export default {
   data: function (){
     return{
-      imgMd01: [
+      imgsMd01: [
         { cate: 'colection', index: '1', src: 'images/middle/IMG_0056.jpg', title: 'Tomo koizumi new collection "BALLET"' },
         { cate: 'colection', index: '2', src: 'images/middle/IMG_0132.jpg', title: 'Tomo koizumi new collection "BALLET"' },
         { cate: 'colection', index: '3', src: 'images/middle/IMG_0412.jpg', title: 'Tomo koizumi new collection "BALLET"' },
@@ -96,7 +96,7 @@ export default {
         { cate: 'colection', index: '8', src: 'images/middle/IMG_1105.jpg', title: 'Tomo koizumi new collection "BALLET"' },
         { cate: 'colection', index: '9', src: 'images/middle/IMG_1263.jpg', title: 'Tomo koizumi new collection "BALLET"' }
       ],
-      imgLg01: [
+      imgsLg01: [
         { cate: 'colection', index: '1', src: 'images/large/IMG_0056.jpg',},
         { cate: 'colection', index: '2', src: 'images/large/IMG_0132.jpg',},
         { cate: 'colection', index: '3', src: 'images/large/IMG_0412.jpg',},
@@ -107,7 +107,7 @@ export default {
         { cate: 'colection', index: '8', src: 'images/large/IMG_1105.jpg',},
         { cate: 'colection', index: '9', src: 'images/large/IMG_1263.jpg',}
       ],
-      imgMd02: [
+      imgsMd02: [
         { cate: 'archive', index: '1', src: 'images/middle/001.jpg', title: 'Design Archive' },
         { cate: 'archive', index: '2', src: 'images/middle/002.jpg', title: 'Design Archive' },
         { cate: 'archive', index: '3', src: 'images/middle/003.jpg', title: 'Design Archive' },
@@ -133,7 +133,7 @@ export default {
         { cate: 'archive', index: '23', src: 'images/middle/design+archive4.jpeg', title: 'Design Archive' },
         { cate: 'archive', index: '24', src: 'images/middle/design+archive5.jpg', title: 'Design Archive' }
       ],
-      imgLg02: [
+      imgsLg02: [
         { cate: 'archive', index: '1', src: 'images/large/001.jpg'},
         { cate: 'archive', index: '2', src: 'images/large/002.jpg'},
         { cate: 'archive', index: '3', src: 'images/large/003.jpg'},
@@ -159,7 +159,7 @@ export default {
         { cate: 'archive', index: '23', src: 'images/large/design+archive4.jpeg'},
         { cate: 'archive', index: '24', src: 'images/large/design+archive5.jpg'}
       ],
-      imgMd03: [
+      imgsMd03: [
         { cate: 'costume', index: '1', src: 'images/middle/9nine+single+cover+costume+design+styling.jpg', title: 'Costume Design' },
         { cate: 'costume', index: '2', src: 'images/middle/9nine+costume+design+a-nation.jpeg', title: 'Costume Design' },
         { cate: 'costume', index: '3', src: 'images/middle/9nine+costume+design.jpeg', title: 'Costume Design' },
@@ -195,7 +195,7 @@ export default {
         { cate: 'costume', index: '33', src: 'images/middle/YOON.png', title: 'Costume Design' },
         { cate: 'costume', index: '34', src: 'images/middle/yuki+koyanagi+costume+design.jpeg', title: 'Costume Design' }
       ],
-      imgLg03: [
+      imgsLg03: [
         { cate: 'costume', index: '1', src: 'images/large/9nine+single+cover+costume+design+styling.jpg'},
         { cate: 'costume', index: '2', src: 'images/large/9nine+costume+design+a-nation.jpeg'},
         { cate: 'costume', index: '3', src: 'images/large/9nine+costume+design.jpeg'},
@@ -233,13 +233,14 @@ export default {
       ],
       isShow: false,
       isFlashig: false,
-      modalId: '',
-      modalClass: '',
-      modalSrc: '',
       isCover: false
     }
   },
   methods: {
+    mounted: function (){
+      //sessionStorageリセット
+      sessionStorage.removeItem('countModalMoreproject');
+    },
     modal: function(e){
       e.preventDefault();
       let moreprojectData = e.target.dataset;
@@ -286,8 +287,7 @@ export default {
     },
     prev: function(e){
       e.preventDefault();
-      let body = document.getElementsByClassName('p-moreproject-modal__body');
-      let flagCover = body[0].classList.contains('is-cover');
+      let flagCover = this.$refs.modBody.classList.contains('is-cover');
       let showImage = document.getElementsByClassName('js-show');
       let prevImage = showImage[0].previousElementSibling;
 
@@ -304,8 +304,7 @@ export default {
     },
     next: function(e){
       e.preventDefault();
-      let body = document.getElementsByClassName('p-moreproject-modal__body');
-      let flagCover = body[0].classList.contains('is-cover');
+      let flagCover = this.$refs.modBody.classList.contains('is-cover');
       let showImage = document.getElementsByClassName('js-show');
       let nextImage = showImage[0].nextElementSibling;    
 
@@ -320,10 +319,6 @@ export default {
         }, 1200);
       }
     } 
-  },
-  mounted: function (){
-    //sessionStorageリセット
-    sessionStorage.removeItem('countModalMoreproject');
   }
 }
 </script>

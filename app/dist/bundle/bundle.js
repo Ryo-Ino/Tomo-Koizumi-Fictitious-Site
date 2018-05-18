@@ -19644,13 +19644,13 @@ var index_esm = {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(51)
+  __webpack_require__(48)
 }
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(18),
   /* template */
-  __webpack_require__(39),
+  __webpack_require__(37),
   /* styles */
   injectStyle,
   /* scopeId */
@@ -19688,9 +19688,9 @@ module.exports = Component.exports
 var disposed = false
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(26),
+  __webpack_require__(25),
   /* template */
-  __webpack_require__(42),
+  __webpack_require__(39),
   /* styles */
   null,
   /* scopeId */
@@ -19728,9 +19728,9 @@ module.exports = Component.exports
 var disposed = false
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(27),
+  __webpack_require__(26),
   /* template */
-  __webpack_require__(46),
+  __webpack_require__(43),
   /* styles */
   null,
   /* scopeId */
@@ -19768,9 +19768,9 @@ module.exports = Component.exports
 var disposed = false
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(28),
+  __webpack_require__(27),
   /* template */
-  __webpack_require__(45),
+  __webpack_require__(42),
   /* styles */
   null,
   /* scopeId */
@@ -19808,9 +19808,9 @@ module.exports = Component.exports
 var disposed = false
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(29),
+  __webpack_require__(28),
   /* template */
-  __webpack_require__(43),
+  __webpack_require__(40),
   /* styles */
   null,
   /* scopeId */
@@ -19930,13 +19930,39 @@ const globalMixIn = {
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.mixin(globalMixIn);
 
+//ローディング
+let loader = document.getElementById('loader');
+
+function opacity() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('success');
+            reject('error');
+            loader.style.opacity = '0';
+        }, 2000);
+    });
+}
+
+function display() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('success');
+            reject('error');
+            loader.style.display = 'none';
+        }, 500);
+    });
+}
+window.onload = function () {
+    opacity().then(display);
+};
+
 new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     store,
     router,
     render: h => h(__WEBPACK_IMPORTED_MODULE_6__App_vue___default.a)
 }).$mount('#app');
 
-// ローディング用のオーバーレイを付ける
+//ページ遷移時オーバーレイを付ける
 router.beforeEach((to, from, next) => {
     store.commit('start');
     next();
@@ -20281,20 +20307,18 @@ exports.clearImmediate = typeof self !== "undefined" && self.clearImmediate || t
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_globals_header_vue__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_globals_header_vue__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_globals_header_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_globals_header_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_globals_footer_vue__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_globals_footer_vue__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_globals_footer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_globals_footer_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_globals_hero_vue__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_globals_hero_vue__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_globals_hero_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_globals_hero_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_globals_scrollTop_vue__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_globals_scrollTop_vue__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_globals_scrollTop_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_globals_scrollTop_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_globals_loading_vue__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_globals_loading_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_globals_loading_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_globals_navigation_vue__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_globals_navigation_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_globals_navigation_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_globals_trans_vue__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_globals_trans_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_globals_trans_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_globals_navigation_vue__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_globals_navigation_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_globals_navigation_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_globals_trans_vue__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_globals_trans_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_globals_trans_vue__);
 //
 //
 //
@@ -20324,9 +20348,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-
 
 
 
@@ -20341,13 +20362,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     'footer-view': __WEBPACK_IMPORTED_MODULE_1__components_globals_footer_vue___default.a,
     'hero-view': __WEBPACK_IMPORTED_MODULE_2__components_globals_hero_vue___default.a,
     'scroll-view': __WEBPACK_IMPORTED_MODULE_3__components_globals_scrollTop_vue___default.a,
-    'loading-view': __WEBPACK_IMPORTED_MODULE_4__components_globals_loading_vue___default.a,
-    'navigation-view': __WEBPACK_IMPORTED_MODULE_5__components_globals_navigation_vue___default.a,
-    'trans-view': __WEBPACK_IMPORTED_MODULE_6__components_globals_trans_vue___default.a
+    'navigation-view': __WEBPACK_IMPORTED_MODULE_4__components_globals_navigation_vue___default.a,
+    'trans-view': __WEBPACK_IMPORTED_MODULE_5__components_globals_trans_vue___default.a
   },
   data: function () {
     return {
       scrollY: 0
+    };
+  },
+  mounted: function () {
+    window.addEventListener('scroll', this.handleScroll);
+
+    window.onorientationchange = function () {
+      location.reload();
     };
   },
   methods: {
@@ -20367,13 +20394,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         display[i].style.transform = 'scale(1,1)';
       }
     }
-  },
-  mounted: function () {
-    window.addEventListener('scroll', this.handleScroll);
-
-    window.onorientationchange = function () {
-      location.reload();
-    };
   }
 });
 
@@ -20462,139 +20482,80 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-let sideImg;
-let page = sessionStorage.getItem('heroPage') || 0;
-let lastPage = 0;
-let touchStartY = 0;
-let touchMoveY = 0;
-let container;
-let canvas;
-function open() {
-  container.style.overflow = 'visible';
-  container.style.opacity = '1';
-  canvas.style.opacity = '1';
-}
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['scroll'],
   data: function () {
     return {
-      images: [{ id: 'image-0', class: 'side-image', src: 'images/hero/IMG_0056.jpg' }, { id: 'image-1', class: 'side-image', src: 'images/hero/IMG_0132.jpg' }, { id: 'image-2', class: 'side-image', src: 'images/hero/IMG_0412.jpg' }, { id: 'image-3', class: 'side-image', src: 'images/hero/IMG_0559.jpg' }, { id: 'image-4', class: 'side-image', src: 'images/hero/IMG_0727.jpg' }, { id: 'image-5', class: 'side-image', src: 'images/hero/IMG_1105.jpg' }, { id: 'image-6', class: 'side-image', src: 'images/hero/IMG_0671.jpg' }, { id: 'image-7', class: 'side-image', src: 'images/hero/IMG_0861.jpg' }, { id: 'image-8', class: 'side-image', src: 'images/hero/IMG_1263.jpg' }],
-      isFade: false
+      images: [{ src: 'images/hero/IMG_0056.jpg' }, { src: 'images/hero/IMG_0132.jpg' }, { src: 'images/hero/IMG_0412.jpg' }, { src: 'images/hero/IMG_0559.jpg' }, { src: 'images/hero/IMG_0727.jpg' }, { src: 'images/hero/IMG_1105.jpg' }, { src: 'images/hero/IMG_0671.jpg' }, { src: 'images/hero/IMG_0861.jpg' }, { src: 'images/hero/IMG_1263.jpg' }],
+      isFade: false,
+      touchStartY: 0,
+      touchMoveY: 0,
+      container: ''
     };
   },
-  methods: {
-    heroFade: function () {
-      this.isFade = true;
-      this.$store.state.flagOpen = true;
-      open();
-    },
-    wheel: function () {
-      this.isFade = true;
-      this.$store.state.flagOpen = true;
-      open();
-    },
-    touchstart: function (e) {
-      e.preventDefault();
-      touchStartY = e.touches[0].pageY;
-    },
-    touchmove: function (e) {
-      e.preventDefault();
-      touchMoveY = e.changedTouches[0].pageY;
-    },
-    touchend: function (e) {
-      e.preventDefault();
-      if (touchStartY > touchMoveY) {
-        this.isFade = true;
-        this.$store.state.flagOpen = true;
-        open();
-      }
-    }
-  },
   mounted: function () {
-    container = document.getElementById('container');
-    canvas = document.getElementById('canvas');
-    let sideImg = document.getElementsByClassName('p-hero__image');
-    let image = document.getElementsByClassName('p-project-article__image');
-    let title = document.getElementsByClassName('p-project-article__title');
-    let lastPage = parseInt(sideImg[sideImg.lenght - 1]);
+    this.container = document.getElementById('container');
+    let page = sessionStorage.getItem('heroPage') || 0;
+    let lastPage = this.$refs.hrImgs.length - 1;
 
-    for (var i = 0; i < sideImg.length; i++) {
-      sideImg[i].style.opacity = '0';
+    for (let i = 0; i < this.$refs.hrImgs.length; i++) {
+      this.$refs.hrImgs[i].style.opacity = '0';
     }
-    sideImg[page].style.opacity = '1';
-    setInterval(function () {
-      if (page == 8) {
-        sideImg[page].style.opacity = '0';
+    this.$refs.hrImgs[page].style.opacity = '1';
+
+    setInterval(() => {
+      if (page == lastPage) {
+        this.$refs.hrImgs[page].style.opacity = '0';
         sessionStorage.removeItem('heroPage');
         page = 0;
         sessionStorage.setItem('heroPage', page);
-        sideImg[page].style.opacity = '1';
+        this.$refs.hrImgs[page].style.opacity = '1';
       } else {
         page++;
         sessionStorage.setItem('heroPage', page);
-        sideImg[page].style.opacity = '1';
-        let prevImg = sideImg[page].previousElementSibling;
+        this.$refs.hrImgs[page].style.opacity = '1';
+        let prevImg = this.$refs.hrImgs[page].previousElementSibling;
         prevImg.style.opacity = '0';
       }
     }, 3000);
 
     //sessionStorageリセット
     sessionStorage.removeItem('heroPage');
+  },
+  methods: {
+    heroFade: function () {
+      this.open;
+    },
+    wheel: function () {
+      this.open;
+    },
+    touchstart: function (e) {
+      e.preventDefault();
+      this.touchStartY = e.touches[0].pageY;
+    },
+    touchmove: function (e) {
+      e.preventDefault();
+      this.touchMoveY = e.changedTouches[0].pageY;
+    },
+    touchend: function (e) {
+      e.preventDefault();
+      if (this.touchStartY > this.touchMoveY) {
+        this.open;
+      }
+    }
+  },
+  computed: {
+    open: function () {
+      this.container.style.overflow = 'visible';
+      this.container.style.opacity = '1';
+      this.$store.state.flagOpen = true;
+      this.isFade = this.$store.state.flagOpen;
+    }
   }
 });
 
 /***/ }),
 /* 22 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function () {
-    return {};
-  },
-  methods: {},
-  mounted: function () {
-    let loader = document.getElementById('loader');
-    function opacity() {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve('success');reject('error');
-          loader.style.opacity = '0';
-        }, 5000);
-      });
-    }
-    function display() {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve('success');reject('error');
-          loader.style.display = 'none';
-        }, 500);
-      });
-    }
-    window.onload = function () {
-      opacity().then(display);
-    };
-  }
-});
-
-/***/ }),
-/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20690,7 +20651,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20710,7 +20671,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20731,7 +20692,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20805,7 +20766,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20886,6 +20847,311 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
+/* 27 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  title: 'TOMO KOIZUMI - Works',
+  data: function () {
+    return {
+      imgMd: [{ index: '1', src: 'images/middle/Ladygaga wears dress from ballet collection.jpeg', title: 'Ladygaga wears dress' }, { index: '2', src: 'images/middle/perfume+costume+design.jpg', title: 'perfume live tour' }, { index: '3', src: 'images/middle/Costume design for Hamada Bamyu Bamyu.jpeg', title: 'Hamada Bamyu Bamyu' }, { index: '4', src: 'images/middle/Costume design for Fumi Nikaido.Shiseido"Majolica Majorca".jpg', title: 'Fumi Nikaido.Shiseido "Majolica Majorca"' }, { index: '5', src: 'images/middle/IMG_0056.jpg', title: 'Tomo Koizumi new collection "Ballet"' }, { index: '6', src: 'images/middle/9nine+single+cover+costume+design+styling.jpg', title: '9nine' }, { index: '7', src: 'images/middle/meisa+kuroki2.jpeg', title: 'Meisa Kuroki' }, { index: '8', src: 'images/middle/miliyah+kato.jpg', title: 'Miliyah Kato' }],
+      imgLg: [{ index: '1', src: 'images/large/Ladygaga wears dress from ballet collection.jpeg' }, { index: '2', src: 'images/large/perfume+costume+design.jpg' }, { index: '3', src: 'images/large/Costume design for Hamada Bamyu Bamyu.jpeg' }, { index: '4', src: 'images/large/Costume design for Fumi Nikaido.Shiseido"Majolica Majorca".jpg' }, { index: '5', src: 'images/large/IMG_0056.jpg' }, { index: '6', src: 'images/large/9nine+single+cover+costume+design+styling.jpg' }, { index: '7', src: 'images/large/meisa+kuroki2.jpeg' }, { index: '8', src: 'images/large/miliyah+kato.jpg' }],
+      isShow: false,
+      isCover: false,
+      isDrag: true,
+      mousedownX: 0,
+      mousemoveX: 0,
+      touchStartX: 0,
+      touchMoveX: 0,
+      flagDrag: false,
+      flagMove: false,
+      moreBtn: ''
+    };
+  },
+  mounted: function () {
+    this.moreBtn = document.getElementById('more-btn');
+
+    //デバイス取得
+    let getDevice = function () {
+      let ua = navigator.userAgent;
+      if (ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
+        return 'sp';
+      } else if (ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
+        return 'tab';
+      } else {
+        return 'other';
+      }
+    }();
+
+    //デバイスによってdragボタンを表示・非表示
+    if (getDevice == 'sp') {
+      this.$refs.dragBtn.style.display = 'none';
+    } else if (getDevice == 'tab') {
+      this.$refs.dragBtn.style.display = 'none';
+    } else if (getDevice == 'other') {
+      this.$refs.dragBtn.style.display = 'block';
+    }
+    //sessionStorageリセット
+    sessionStorage.removeItem('transNum');
+    sessionStorage.removeItem('countModalProject');
+  },
+  methods: {
+    mousepursuit: function (e) {
+      e.preventDefault();
+      if (this.flagDrag == true) {
+        let x = e.pageX - 40 + 'px';
+        let y = e.pageY - 64 + 'px';
+
+        this.$refs.dragBtn.style.left = x;
+        this.$refs.dragBtn.style.top = y;
+        this.$refs.dragBtn.style.bottom = 'auto';
+      }
+    },
+    mousedown: function (e) {
+      e.preventDefault();
+      this.$refs.dragBtn.classList.add('is-drag');
+      this.flagDrag = this.$refs.dragBtn.classList.contains('is-drag');
+      this.mousedownX = e.pageX;
+      this.isDrag = false;
+    },
+    mousemove: function (e) {
+      e.preventDefault();
+      if (this.flagDrag == true) {
+        let transNum = parseInt(sessionStorage.getItem('transNum')) || parseInt(0);
+        let width = 0;
+        let speed = 20;
+
+        this.mousemoveX = e.pageX;
+
+        for (let i = 0; i < this.$refs.proItems.length; i++) {
+          width += this.$refs.proItems[i].clientWidth;
+        }
+        width -= this.$refs.proItems[this.$refs.proItems.length - 1].clientWidth;
+
+        if (this.mousedownX < this.mousemoveX) {
+          if (transNum < width) {
+            transNum += speed;
+            sessionStorage.setItem('transNum', transNum);
+            this.$refs.proBody.style.transform = 'translate3d(-' + transNum + 'px, 0, 0)';
+          } else {
+            transNum += width - transNum;
+            sessionStorage.setItem('transNum', transNum);
+            this.$refs.proBody.style.transform = 'translate3d(-' + transNum + 'px, 0, 0)';
+          }
+        } else if (this.mousedownX > this.mousemoveX) {
+          if (transNum > 0) {
+            transNum -= speed;
+            sessionStorage.setItem('transNum', transNum);
+            this.$refs.proBody.style.transform = 'translate3d(-' + transNum + 'px, 0, 0)';
+          } else {
+            transNum += transNum * -1;
+            sessionStorage.setItem('transNum', transNum);
+            this.$refs.proBody.style.transform = 'translate3d(-' + transNum + 'px, 0, 0)';
+          }
+        }
+
+        if (transNum >= width) {
+          this.moreBtn.style.right = '0px';
+          this.moreBtn.style.left = 'auto';
+        }
+        if (transNum <= 0) {
+          this.moreBtn.style.right = 'auto';
+          this.moreBtn.style.left = '0px';
+        }
+      }
+    },
+    mouseup: function (e) {
+      e.preventDefault();
+      this.$refs.dragBtn.classList.remove('is-drag');
+      this.flagDrag = false;
+      this.isDrag = true;
+    },
+    touchstart: function (e) {
+      e.preventDefault();
+      this.touchStartX = e.touches[0].pageX;
+    },
+    touchmove: function (e) {
+      e.preventDefault();
+      let width = this.$refs.proBody.clientWidth * this.$refs.proItems.length;
+      let transNum = parseInt(sessionStorage.getItem('transNum')) || parseInt(0);
+      let rebe = 25;
+
+      this.touchMoveX = e.changedTouches[0].pageX;
+      this.flagMove = true;
+
+      width -= this.$refs.proBody.clientWidth;
+
+      if (this.touchStartX > this.touchMoveX && transNum < width) {
+        rebe = transNum + rebe;
+        this.$refs.proBody.style.transform = 'translate3d(-' + rebe + 'px, 0, 0)';
+      } else if (this.touchStartX < this.touchMoveX && transNum > 0) {
+        rebe = transNum - rebe;
+        this.$refs.proBody.style.transform = 'translate3d(-' + rebe + 'px, 0, 0)';
+      }
+    },
+    touchend: function (e) {
+      e.preventDefault();
+      let transNum = parseInt(sessionStorage.getItem('transNum')) || parseInt(0);
+      let width = this.$refs.proBody.clientWidth * this.$refs.proItems.length;
+      let move = width / this.$refs.proItems.length;
+      let touchResult = this.touchMoveX - this.touchStartX;
+      let rebe = 50;
+
+      width -= this.$refs.proBody.clientWidth;
+
+      if (this.flagMove == true) {
+        if (touchResult > rebe || touchResult < -rebe) {
+          if (this.touchStartX > this.touchMoveX && transNum < width) {
+            transNum += move;
+            sessionStorage.setItem('transNum', transNum);
+            this.$refs.proBody.style.transform = 'translate3d(-' + transNum + 'px, 0, 0)';
+          } else if (this.touchStartX < this.touchMoveX && transNum > 0) {
+            transNum -= move;
+            sessionStorage.setItem('transNum', transNum);
+            this.$refs.proBody.style.transform = 'translate3d(-' + transNum + 'px, 0, 0)';
+          }
+        } else {
+          this.$refs.proBody.style.transform = 'translate3d(-' + transNum + 'px, 0, 0)';
+        }
+      } else {
+        let projectData = e.target.dataset;
+        this.isShow = true;
+
+        for (let i = 0; i < this.$refs.modItems.length; i++) {
+          let modalData = this.$refs.modItems[i].dataset;
+          switch (modalData.index == projectData.index) {
+            case true:
+              this.$refs.modItems[i].classList.add('is-show', 'js-show');
+              break;
+          }
+        }
+      }
+      this.flagMove = false;
+    },
+    modal: function (e) {
+      e.preventDefault();
+      let projectData = e.target.dataset;
+
+      this.isShow = true;
+
+      for (let i = 0; i < this.$refs.modItems.length; i++) {
+        let modalData = this.$refs.modItems[i].dataset;
+        switch (modalData.index == projectData.index) {
+          case true:
+            this.$refs.modItems[i].classList.add('is-show', 'js-show');
+            break;
+        }
+      }
+    },
+    hide: function () {
+      this.isShow = false;
+      let showImage = document.getElementsByClassName('js-show');
+      showImage[0].classList.remove('is-show', 'js-show');
+    },
+    prev: function (e) {
+      e.preventDefault();
+      let flagCover = this.$refs.modWrap.classList.contains('is-cover');
+      let showImage = document.getElementsByClassName('js-show');
+      let prevImage = showImage[0].previousElementSibling;
+
+      if (!flagCover && prevImage !== null) {
+        this.isCover = true;
+        setTimeout(() => {
+          showImage[0].previousElementSibling.classList.add('is-show', 'js-show');
+          showImage[0].nextElementSibling.classList.remove('is-show', 'js-show');
+        }, 500);
+        setTimeout(() => {
+          this.isCover = false;
+        }, 1200);
+      }
+    },
+    next: function (e) {
+      e.preventDefault();
+      let flagCover = this.$refs.modWrap.classList.contains('is-cover');
+      let showImage = document.getElementsByClassName('js-show');
+      let nextImage = showImage[0].nextElementSibling;
+
+      if (!flagCover && nextImage !== null) {
+        this.isCover = true;
+        setTimeout(() => {
+          showImage[0].nextElementSibling.classList.add('is-show', 'js-show');
+          showImage[0].classList.remove('is-show', 'js-show');
+        }, 500);
+        setTimeout(() => {
+          this.isCover = false;
+        }, 1200);
+      }
+    },
+    correction: function () {
+      window.scrollTo(0, 0);
+      this.$store.state.pageProject = false;
+      this.$store.state.pageMoreProject = true;
+    }
+  },
+  computed: {
+    //オープン時のアニメーションクラス
+    animation: function () {
+      if (this.$store.state.flagOpen) {
+        return {
+          'is-open': this.isOpen = true
+        };
+      } else {
+        return {
+          'is-open': this.isOpen = false
+        };
+      }
+    }
+  }
+});
+
+/***/ }),
 /* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -20941,334 +21207,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
-let mousedownX = 0;
-let mousemoveX = 0;
-let touchStartX = 0;
-let touchMoveX = 0;
-let dragBtn;
-let flagDrag = false;
-let flagMove = false;
-let container;
-let items;
-let body;
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  title: 'TOMO KOIZUMI - Works',
-  data: function () {
-    return {
-      imgMd: [{ id: 'image-md-1', index: '1', src: 'images/middle/Ladygaga wears dress from ballet collection.jpeg', title: 'Ladygaga wears dress' }, { id: 'image-md-2', index: '2', src: 'images/middle/perfume+costume+design.jpg', title: 'perfume live tour' }, { id: 'image-md-3', index: '3', src: 'images/middle/Costume design for Hamada Bamyu Bamyu.jpeg', title: 'Hamada Bamyu Bamyu' }, { id: 'image-md-4', index: '4', src: 'images/middle/Costume design for Fumi Nikaido.Shiseido"Majolica Majorca".jpg', title: 'Fumi Nikaido.Shiseido "Majolica Majorca"' }, { id: 'image-md-5', index: '5', src: 'images/middle/IMG_0056.jpg', title: 'Tomo Koizumi new collection "Ballet"' }, { id: 'image-md-6', index: '6', src: 'images/middle/9nine+single+cover+costume+design+styling.jpg', title: '9nine' }, { id: 'image-md-7', index: '7', src: 'images/middle/meisa+kuroki2.jpeg', title: 'Meisa Kuroki' }, { id: 'image-md-8', index: '8', src: 'images/middle/miliyah+kato.jpg', title: 'Miliyah Kato' }],
-      imgLg: [{ id: 'image-lg-1', index: '1', src: 'images/large/Ladygaga wears dress from ballet collection.jpeg' }, { id: 'image-lg-2', index: '2', src: 'images/large/perfume+costume+design.jpg' }, { id: 'image-lg-3', index: '3', src: 'images/large/Costume design for Hamada Bamyu Bamyu.jpeg' }, { id: 'image-lg-4', index: '4', src: 'images/large/Costume design for Fumi Nikaido.Shiseido"Majolica Majorca".jpg' }, { id: 'image-lg-5', index: '5', src: 'images/large/IMG_0056.jpg' }, { id: 'image-lg-6', index: '6', src: 'images/large/9nine+single+cover+costume+design+styling.jpg' }, { id: 'image-lg-7', index: '7', src: 'images/large/meisa+kuroki2.jpeg' }, { id: 'image-lg-8', index: '8', src: 'images/large/miliyah+kato.jpg' }],
-      isShow: false,
-      isFlashig: false,
-      modalId: '',
-      modalSrc: '',
-      isCover: false,
-      discoloration: false,
-      isDrag: true
-    };
-  },
-  methods: {
-    mousepursuit: function (e) {
-      e.preventDefault();
-      if (flagDrag == true) {
-        let x = e.pageX - 40 + 'px';
-        let y = e.pageY - 64 + 'px';
-
-        dragBtn.style.left = x;
-        dragBtn.style.top = y;
-        dragBtn.style.bottom = 'auto';
-      }
-    },
-    mousedown: function (e) {
-      e.preventDefault();
-      dragBtn = document.getElementById('drag-btn');
-      dragBtn.classList.add('is-drag');
-      flagDrag = dragBtn.classList.contains('is-drag');
-      mousedownX = e.pageX;
-      this.isDrag = false;
-    },
-    mousemove: function (e) {
-      e.preventDefault();
-      if (flagDrag == true) {
-        body = document.getElementsByClassName('p-project-body');
-        items = document.getElementsByClassName('p-project-article');
-        let transNum = parseInt(sessionStorage.getItem('transNum')) || parseInt(0);
-        let width = 0;
-        let speed = 20;
-
-        mousemoveX = e.pageX;
-        for (var i = 0; i < items.length; i++) {
-          width += items[i].clientWidth;
-        }
-        width -= items[items.length - 1].clientWidth;
-
-        if (mousedownX < mousemoveX) {
-          if (transNum < width) {
-            transNum += speed;
-            sessionStorage.setItem('transNum', transNum);
-            body[0].style.transform = 'translate3d(-' + transNum + 'px, 0, 0)';
-          } else {
-            transNum += width - transNum;
-            sessionStorage.setItem('transNum', transNum);
-            body[0].style.transform = 'translate3d(-' + transNum + 'px, 0, 0)';
-          }
-        } else if (mousedownX > mousemoveX) {
-          if (transNum > 0) {
-            transNum -= speed;
-            sessionStorage.setItem('transNum', transNum);
-            body[0].style.transform = 'translate3d(-' + transNum + 'px, 0, 0)';
-          } else {
-            transNum += transNum * -1;
-            sessionStorage.setItem('transNum', transNum);
-            body[0].style.transform = 'translate3d(-' + transNum + 'px, 0, 0)';
-          }
-        }
-
-        let more = document.getElementsByClassName('p-project-more');
-        if (transNum >= width) {
-          more[0].style.right = '-32px';
-          more[0].style.left = 'auto';
-        }
-        if (transNum <= 0) {
-          more[0].style.right = 'auto';
-          more[0].style.left = '-32px';
-        }
-      }
-    },
-    mouseup: function (e) {
-      e.preventDefault();
-      dragBtn.classList.remove('is-drag');
-      flagDrag = false;
-      this.isDrag = true;
-    },
-    touchstart: function (e) {
-      e.preventDefault();
-      touchStartX = e.touches[0].pageX;
-    },
-    touchmove: function (e) {
-      e.preventDefault();
-      touchMoveX = e.changedTouches[0].pageX;
-      flagMove = true;
-      body = document.getElementsByClassName('p-project-body');
-      items = document.getElementsByClassName('p-project-article');
-      let width = body[0].clientWidth * items.length;
-      let transNum = parseInt(sessionStorage.getItem('transNum')) || parseInt(0);
-      let rebe = 25;
-
-      width -= body[0].clientWidth;
-
-      if (touchStartX > touchMoveX && transNum < width) {
-        rebe = transNum + rebe;
-        body[0].style.transform = 'translate3d(-' + rebe + 'px, 0, 0)';
-      } else if (touchStartX < touchMoveX && transNum > 0) {
-        rebe = transNum - rebe;
-        body[0].style.transform = 'translate3d(-' + rebe + 'px, 0, 0)';
-      }
-    },
-    touchend: function (e) {
-      e.preventDefault();
-      body = document.getElementsByClassName('p-project-body');
-      items = document.getElementsByClassName('p-project-article');
-      let transNum = parseInt(sessionStorage.getItem('transNum')) || parseInt(0);
-      let width = body[0].clientWidth * items.length;
-      let move = width / items.length;
-      let touchResult = touchMoveX - touchStartX;
-      let rebe = 50;
-
-      width -= body[0].clientWidth;
-
-      if (flagMove == true) {
-        if (touchResult > rebe || touchResult < -rebe) {
-          if (touchStartX > touchMoveX && transNum < width) {
-            transNum += move;
-            sessionStorage.setItem('transNum', transNum);
-            body[0].style.transform = 'translate3d(-' + transNum + 'px, 0, 0)';
-          } else if (touchStartX < touchMoveX && transNum > 0) {
-            transNum -= move;
-            sessionStorage.setItem('transNum', transNum);
-            body[0].style.transform = 'translate3d(-' + transNum + 'px, 0, 0)';
-          }
-        } else {
-          body[0].style.transform = 'translate3d(-' + transNum + 'px, 0, 0)';
-        }
-      } else {
-        let projectData = e.target.dataset;
-        let modalImages = document.getElementsByClassName('p-project-modal__wrap');
-        this.isShow = true;
-
-        for (let i = 0; i < modalImages.length; i++) {
-          let modalData = modalImages[i].dataset;
-          switch (modalData.index == projectData.index) {
-            case true:
-              modalImages[i].classList.add('is-show', 'js-show');
-              break;
-          }
-        }
-      }
-      flagMove = false;
-    },
-    modal: function (e) {
-      e.preventDefault();
-      let projectData = e.target.dataset;
-      let modalImages = document.getElementsByClassName('p-project-modal__wrap');
-
-      this.isShow = true;
-      for (let i = 0; i < modalImages.length; i++) {
-        let modalData = modalImages[i].dataset;
-        switch (modalData.index == projectData.index) {
-          case true:
-            modalImages[i].classList.add('is-show', 'js-show');
-            break;
-        }
-      }
-    },
-    hide: function () {
-      this.isShow = false;
-      let showImage = document.getElementsByClassName('js-show');
-      showImage[0].classList.remove('is-show', 'js-show');
-    },
-    prev: function (e) {
-      e.preventDefault();
-      let body = document.getElementsByClassName('p-project-modal__body');
-      let flagCover = body[0].classList.contains('is-cover');
-      let showImage = document.getElementsByClassName('js-show');
-      let prevImage = showImage[0].previousElementSibling;
-
-      if (!flagCover && prevImage !== null) {
-        this.isCover = true;
-        setTimeout(() => {
-          showImage[0].previousElementSibling.classList.add('is-show', 'js-show');
-          showImage[0].nextElementSibling.classList.remove('is-show', 'js-show');
-        }, 500);
-        setTimeout(() => {
-          this.isCover = false;
-        }, 1200);
-      }
-    },
-    next: function (e) {
-      e.preventDefault();
-      let body = document.getElementsByClassName('p-project-modal__body');
-      let flagCover = body[0].classList.contains('is-cover');
-      let showImage = document.getElementsByClassName('js-show');
-      let nextImage = showImage[0].nextElementSibling;
-
-      if (!flagCover && nextImage !== null) {
-        this.isCover = true;
-        setTimeout(() => {
-          showImage[0].nextElementSibling.classList.add('is-show', 'js-show');
-          showImage[0].classList.remove('is-show', 'js-show');
-        }, 500);
-        setTimeout(() => {
-          this.isCover = false;
-        }, 1200);
-      }
-    },
-    correction: function () {
-      window.scrollTo(0, 0);
-      this.$store.state.pageProject = false;
-      this.$store.state.pageMoreProject = true;
-    }
-  },
-  computed: {
-    //オープン時のアニメーションクラス
-    animation: function () {
-      if (this.$store.state.flagOpen) {
-        return {
-          'is-open': this.isOpen = true
-        };
-      } else {
-        return {
-          'is-open': this.isOpen = false
-        };
-      }
-    }
-  },
-  mounted: function () {
-    //デバイス取得
-    let getDevice = function () {
-      let ua = navigator.userAgent;
-      if (ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
-        return 'sp';
-      } else if (ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
-        return 'tab';
-      } else {
-        return 'other';
-      }
-    }();
-
-    //デバイスによってdragボタンを表示・非表示
-    dragBtn = document.getElementById('drag-btn');
-    if (getDevice == 'sp') {
-      dragBtn.style.display = 'none';
-    } else if (getDevice == 'tab') {
-      dragBtn.style.display = 'none';
-    } else if (getDevice == 'other') {
-      dragBtn.style.display = 'block';
-    }
-
-    //sessionStorageリセット
-    sessionStorage.removeItem('transNum');
-    sessionStorage.removeItem('countModalProject');
-  }
-});
-
-/***/ }),
-/* 29 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -21306,21 +21244,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function () {
     return {
-      imgMd01: [{ cate: 'colection', index: '1', src: 'images/middle/IMG_0056.jpg', title: 'Tomo koizumi new collection "BALLET"' }, { cate: 'colection', index: '2', src: 'images/middle/IMG_0132.jpg', title: 'Tomo koizumi new collection "BALLET"' }, { cate: 'colection', index: '3', src: 'images/middle/IMG_0412.jpg', title: 'Tomo koizumi new collection "BALLET"' }, { cate: 'colection', index: '4', src: 'images/middle/IMG_0559.jpg', title: 'Tomo koizumi new collection "BALLET"' }, { cate: 'colection', index: '5', src: 'images/middle/IMG_0671.jpg', title: 'Tomo koizumi new collection "BALLET"' }, { cate: 'colection', index: '6', src: 'images/middle/IMG_0727.jpg', title: 'Tomo koizumi new collection "BALLET"' }, { cate: 'colection', index: '7', src: 'images/middle/IMG_0861.jpg', title: 'Tomo koizumi new collection "BALLET"' }, { cate: 'colection', index: '8', src: 'images/middle/IMG_1105.jpg', title: 'Tomo koizumi new collection "BALLET"' }, { cate: 'colection', index: '9', src: 'images/middle/IMG_1263.jpg', title: 'Tomo koizumi new collection "BALLET"' }],
-      imgLg01: [{ cate: 'colection', index: '1', src: 'images/large/IMG_0056.jpg' }, { cate: 'colection', index: '2', src: 'images/large/IMG_0132.jpg' }, { cate: 'colection', index: '3', src: 'images/large/IMG_0412.jpg' }, { cate: 'colection', index: '4', src: 'images/large/IMG_0559.jpg' }, { cate: 'colection', index: '5', src: 'images/large/IMG_0671.jpg' }, { cate: 'colection', index: '6', src: 'images/large/IMG_0727.jpg' }, { cate: 'colection', index: '7', src: 'images/large/IMG_0861.jpg' }, { cate: 'colection', index: '8', src: 'images/large/IMG_1105.jpg' }, { cate: 'colection', index: '9', src: 'images/large/IMG_1263.jpg' }],
-      imgMd02: [{ cate: 'archive', index: '1', src: 'images/middle/001.jpg', title: 'Design Archive' }, { cate: 'archive', index: '2', src: 'images/middle/002.jpg', title: 'Design Archive' }, { cate: 'archive', index: '3', src: 'images/middle/003.jpg', title: 'Design Archive' }, { cate: 'archive', index: '4', src: 'images/middle/004.jpg', title: 'Design Archive' }, { cate: 'archive', index: '5', src: 'images/middle/005.jpg', title: 'Design Archive' }, { cate: 'archive', index: '6', src: 'images/middle/006.jpg', title: 'Design Archive' }, { cate: 'archive', index: '7', src: 'images/middle/007.jpg', title: 'Design Archive' }, { cate: 'archive', index: '8', src: 'images/middle/008.jpg', title: 'Design Archive' }, { cate: 'archive', index: '9', src: 'images/middle/009.jpg', title: 'Design Archive' }, { cate: 'archive', index: '10', src: 'images/middle/010.jpg', title: 'Design Archive' }, { cate: 'archive', index: '11', src: 'images/middle/011.jpg', title: 'Design Archive' }, { cate: 'archive', index: '12', src: 'images/middle/012.jpg', title: 'Design Archive' }, { cate: 'archive', index: '13', src: 'images/middle/013.jpg', title: 'Design Archive' }, { cate: 'archive', index: '14', src: 'images/middle/014.jpg', title: 'Design Archive' }, { cate: 'archive', index: '15', src: 'images/middle/002-1.jpg', title: 'Design Archive' }, { cate: 'archive', index: '16', src: 'images/middle/003-1.jpg', title: 'Design Archive' }, { cate: 'archive', index: '17', src: 'images/middle/004-1.jpg', title: 'Design Archive' }, { cate: 'archive', index: '18', src: 'images/middle/005-1.jpg', title: 'Design Archive' }, { cate: 'archive', index: '19', src: 'images/middle/006-1.jpg', title: 'Design Archive' }, { cate: 'archive', index: '20', src: 'images/middle/design+archive.jpg', title: 'Design Archive' }, { cate: 'archive', index: '21', src: 'images/middle/design+archive2.jpg', title: 'Design Archive' }, { cate: 'archive', index: '22', src: 'images/middle/design+archive3.jpg', title: 'Design Archive' }, { cate: 'archive', index: '23', src: 'images/middle/design+archive4.jpeg', title: 'Design Archive' }, { cate: 'archive', index: '24', src: 'images/middle/design+archive5.jpg', title: 'Design Archive' }],
-      imgLg02: [{ cate: 'archive', index: '1', src: 'images/large/001.jpg' }, { cate: 'archive', index: '2', src: 'images/large/002.jpg' }, { cate: 'archive', index: '3', src: 'images/large/003.jpg' }, { cate: 'archive', index: '4', src: 'images/large/004.jpg' }, { cate: 'archive', index: '5', src: 'images/large/005.jpg' }, { cate: 'archive', index: '6', src: 'images/large/006.jpg' }, { cate: 'archive', index: '7', src: 'images/large/007.jpg' }, { cate: 'archive', index: '8', src: 'images/large/008.jpg' }, { cate: 'archive', index: '9', src: 'images/large/009.jpg' }, { cate: 'archive', index: '10', src: 'images/large/010.jpg' }, { cate: 'archive', index: '11', src: 'images/large/011.jpg' }, { cate: 'archive', index: '12', src: 'images/large/012.jpg' }, { cate: 'archive', index: '13', src: 'images/large/013.jpg' }, { cate: 'archive', index: '14', src: 'images/large/014.jpg' }, { cate: 'archive', index: '15', src: 'images/large/002-1.jpg' }, { cate: 'archive', index: '16', src: 'images/large/003-1.jpg' }, { cate: 'archive', index: '17', src: 'images/large/004-1.jpg' }, { cate: 'archive', index: '18', src: 'images/large/005-1.jpg' }, { cate: 'archive', index: '19', src: 'images/large/006-1.jpg' }, { cate: 'archive', index: '20', src: 'images/large/design+archive.jpg' }, { cate: 'archive', index: '21', src: 'images/large/design+archive2.jpg' }, { cate: 'archive', index: '22', src: 'images/large/design+archive3.jpg' }, { cate: 'archive', index: '23', src: 'images/large/design+archive4.jpeg' }, { cate: 'archive', index: '24', src: 'images/large/design+archive5.jpg' }],
-      imgMd03: [{ cate: 'costume', index: '1', src: 'images/middle/9nine+single+cover+costume+design+styling.jpg', title: 'Costume Design' }, { cate: 'costume', index: '2', src: 'images/middle/9nine+costume+design+a-nation.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '3', src: 'images/middle/9nine+costume+design.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '4', src: 'images/middle/ai+tominaga+.jpg', title: 'Costume Design' }, { cate: 'costume', index: '5', src: 'images/middle/ai+tominaga2.jpg', title: 'Costume Design' }, { cate: 'costume', index: '6', src: 'images/middle/BENI+costume+design+live+tour.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '7', src: 'images/middle/beni+live+tour+costume+design+3.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '8', src: 'images/middle/BENI+styling.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '9', src: 'images/middle/beni+styling3.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '10', src: 'images/middle/beni+styling4.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '11', src: 'images/middle/color-code+costume+design+tokyo+girls+collection.jpg', title: 'Costume Design' }, { cate: 'costume', index: '12', src: 'images/middle/color-code+costume+design.jpg', title: 'Costume Design' }, { cate: 'costume', index: '13', src: 'images/middle/color-code+tokyo+girls+collection.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '14', src: 'images/middle/hongkong+adidas+fashion+show+costume+design.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '15', src: 'images/middle/mademoiselle+yulia.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '16', src: 'images/middle/mademoiselle+yulia+costume+design.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '17', src: 'images/middle/MAKIII+single+cover+costume+design.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '18', src: 'images/middle/MAKIII+single+cover+costume+design+2.jpg', title: 'Costume Design' }, { cate: 'costume', index: '19', src: 'images/middle/mari+natsuki+costume+design+tokyo+rainbow+parade.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '20', src: 'images/middle/mari+natsuki+costume+design+tokyo+rainbow+parade2.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '21', src: 'images/middle/mari+natsuki+styling.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '22', src: 'images/middle/meisa+kuroki.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '23', src: 'images/middle/meisa+kuroki+single+cover+.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '24', src: 'images/middle/meisa+kuroki+single+MV+costume+design.jpg', title: 'Costume Design' }, { cate: 'costume', index: '25', src: 'images/middle/meisa+kuroki2.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '26', src: 'images/middle/miliyah+kato.jpg', title: 'Costume Design' }, { cate: 'costume', index: '27', src: 'images/middle/miliyah+kato2.jpg', title: 'Costume Design' }, { cate: 'costume', index: '28', src: 'images/middle/miliyah+kato+costume+design.jpg', title: 'Costume Design' }, { cate: 'costume', index: '29', src: 'images/middle/miliyah+kato+costume+design2.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '30', src: 'images/middle/perfume+costume+design.jpg', title: 'Costume Design' }, { cate: 'costume', index: '31', src: 'images/middle/perfume+costume+design+live+tour.jpg', title: 'Costume Design' }, { cate: 'costume', index: '32', src: 'images/middle/Rio+single+cover+costume+design.jpg', title: 'Costume Design' }, { cate: 'costume', index: '33', src: 'images/middle/YOON.png', title: 'Costume Design' }, { cate: 'costume', index: '34', src: 'images/middle/yuki+koyanagi+costume+design.jpeg', title: 'Costume Design' }],
-      imgLg03: [{ cate: 'costume', index: '1', src: 'images/large/9nine+single+cover+costume+design+styling.jpg' }, { cate: 'costume', index: '2', src: 'images/large/9nine+costume+design+a-nation.jpeg' }, { cate: 'costume', index: '3', src: 'images/large/9nine+costume+design.jpeg' }, { cate: 'costume', index: '4', src: 'images/large/ai+tominaga+.jpg' }, { cate: 'costume', index: '5', src: 'images/large/ai+tominaga2.jpg' }, { cate: 'costume', index: '6', src: 'images/large/BENI+costume+design+live+tour.jpeg' }, { cate: 'costume', index: '7', src: 'images/large/beni+live+tour+costume+design+3.jpeg' }, { cate: 'costume', index: '8', src: 'images/large/BENI+styling.jpeg' }, { cate: 'costume', index: '9', src: 'images/large/beni+styling3.jpeg' }, { cate: 'costume', index: '10', src: 'images/large/beni+styling4.jpeg' }, { cate: 'costume', index: '11', src: 'images/large/color-code+costume+design+tokyo+girls+collection.jpg' }, { cate: 'costume', index: '12', src: 'images/large/color-code+costume+design.jpg' }, { cate: 'costume', index: '13', src: 'images/large/color-code+tokyo+girls+collection.jpeg' }, { cate: 'costume', index: '14', src: 'images/large/hongkong+adidas+fashion+show+costume+design.jpeg' }, { cate: 'costume', index: '15', src: 'images/large/mademoiselle+yulia.jpeg' }, { cate: 'costume', index: '16', src: 'images/large/mademoiselle+yulia+costume+design.jpeg' }, { cate: 'costume', index: '17', src: 'images/large/MAKIII+single+cover+costume+design.jpeg' }, { cate: 'costume', index: '18', src: 'images/large/MAKIII+single+cover+costume+design+2.jpg' }, { cate: 'costume', index: '19', src: 'images/large/mari+natsuki+costume+design+tokyo+rainbow+parade.jpeg' }, { cate: 'costume', index: '20', src: 'images/large/mari+natsuki+costume+design+tokyo+rainbow+parade2.jpeg' }, { cate: 'costume', index: '21', src: 'images/large/mari+natsuki+styling.jpeg' }, { cate: 'costume', index: '22', src: 'images/large/meisa+kuroki.jpeg' }, { cate: 'costume', index: '23', src: 'images/large/meisa+kuroki+single+cover+.jpeg' }, { cate: 'costume', index: '24', src: 'images/large/meisa+kuroki+single+MV+costume+design.jpg' }, { cate: 'costume', index: '25', src: 'images/large/meisa+kuroki2.jpeg' }, { cate: 'costume', index: '26', src: 'images/large/miliyah+kato.jpg' }, { cate: 'costume', index: '27', src: 'images/large/miliyah+kato2.jpg' }, { cate: 'costume', index: '28', src: 'images/large/miliyah+kato+costume+design.jpg' }, { cate: 'costume', index: '29', src: 'images/large/miliyah+kato+costume+design2.jpeg' }, { cate: 'costume', index: '30', src: 'images/large/perfume+costume+design.jpg' }, { cate: 'costume', index: '31', src: 'images/large/perfume+costume+design+live+tour.jpg' }, { cate: 'costume', index: '32', src: 'images/large/Rio+single+cover+costume+design.jpg' }, { cate: 'costume', index: '33', src: 'images/large/YOON.png' }, { cate: 'costume', index: '34', src: 'images/large/yuki+koyanagi+costume+design.jpeg' }],
+      imgsMd01: [{ cate: 'colection', index: '1', src: 'images/middle/IMG_0056.jpg', title: 'Tomo koizumi new collection "BALLET"' }, { cate: 'colection', index: '2', src: 'images/middle/IMG_0132.jpg', title: 'Tomo koizumi new collection "BALLET"' }, { cate: 'colection', index: '3', src: 'images/middle/IMG_0412.jpg', title: 'Tomo koizumi new collection "BALLET"' }, { cate: 'colection', index: '4', src: 'images/middle/IMG_0559.jpg', title: 'Tomo koizumi new collection "BALLET"' }, { cate: 'colection', index: '5', src: 'images/middle/IMG_0671.jpg', title: 'Tomo koizumi new collection "BALLET"' }, { cate: 'colection', index: '6', src: 'images/middle/IMG_0727.jpg', title: 'Tomo koizumi new collection "BALLET"' }, { cate: 'colection', index: '7', src: 'images/middle/IMG_0861.jpg', title: 'Tomo koizumi new collection "BALLET"' }, { cate: 'colection', index: '8', src: 'images/middle/IMG_1105.jpg', title: 'Tomo koizumi new collection "BALLET"' }, { cate: 'colection', index: '9', src: 'images/middle/IMG_1263.jpg', title: 'Tomo koizumi new collection "BALLET"' }],
+      imgsLg01: [{ cate: 'colection', index: '1', src: 'images/large/IMG_0056.jpg' }, { cate: 'colection', index: '2', src: 'images/large/IMG_0132.jpg' }, { cate: 'colection', index: '3', src: 'images/large/IMG_0412.jpg' }, { cate: 'colection', index: '4', src: 'images/large/IMG_0559.jpg' }, { cate: 'colection', index: '5', src: 'images/large/IMG_0671.jpg' }, { cate: 'colection', index: '6', src: 'images/large/IMG_0727.jpg' }, { cate: 'colection', index: '7', src: 'images/large/IMG_0861.jpg' }, { cate: 'colection', index: '8', src: 'images/large/IMG_1105.jpg' }, { cate: 'colection', index: '9', src: 'images/large/IMG_1263.jpg' }],
+      imgsMd02: [{ cate: 'archive', index: '1', src: 'images/middle/001.jpg', title: 'Design Archive' }, { cate: 'archive', index: '2', src: 'images/middle/002.jpg', title: 'Design Archive' }, { cate: 'archive', index: '3', src: 'images/middle/003.jpg', title: 'Design Archive' }, { cate: 'archive', index: '4', src: 'images/middle/004.jpg', title: 'Design Archive' }, { cate: 'archive', index: '5', src: 'images/middle/005.jpg', title: 'Design Archive' }, { cate: 'archive', index: '6', src: 'images/middle/006.jpg', title: 'Design Archive' }, { cate: 'archive', index: '7', src: 'images/middle/007.jpg', title: 'Design Archive' }, { cate: 'archive', index: '8', src: 'images/middle/008.jpg', title: 'Design Archive' }, { cate: 'archive', index: '9', src: 'images/middle/009.jpg', title: 'Design Archive' }, { cate: 'archive', index: '10', src: 'images/middle/010.jpg', title: 'Design Archive' }, { cate: 'archive', index: '11', src: 'images/middle/011.jpg', title: 'Design Archive' }, { cate: 'archive', index: '12', src: 'images/middle/012.jpg', title: 'Design Archive' }, { cate: 'archive', index: '13', src: 'images/middle/013.jpg', title: 'Design Archive' }, { cate: 'archive', index: '14', src: 'images/middle/014.jpg', title: 'Design Archive' }, { cate: 'archive', index: '15', src: 'images/middle/002-1.jpg', title: 'Design Archive' }, { cate: 'archive', index: '16', src: 'images/middle/003-1.jpg', title: 'Design Archive' }, { cate: 'archive', index: '17', src: 'images/middle/004-1.jpg', title: 'Design Archive' }, { cate: 'archive', index: '18', src: 'images/middle/005-1.jpg', title: 'Design Archive' }, { cate: 'archive', index: '19', src: 'images/middle/006-1.jpg', title: 'Design Archive' }, { cate: 'archive', index: '20', src: 'images/middle/design+archive.jpg', title: 'Design Archive' }, { cate: 'archive', index: '21', src: 'images/middle/design+archive2.jpg', title: 'Design Archive' }, { cate: 'archive', index: '22', src: 'images/middle/design+archive3.jpg', title: 'Design Archive' }, { cate: 'archive', index: '23', src: 'images/middle/design+archive4.jpeg', title: 'Design Archive' }, { cate: 'archive', index: '24', src: 'images/middle/design+archive5.jpg', title: 'Design Archive' }],
+      imgsLg02: [{ cate: 'archive', index: '1', src: 'images/large/001.jpg' }, { cate: 'archive', index: '2', src: 'images/large/002.jpg' }, { cate: 'archive', index: '3', src: 'images/large/003.jpg' }, { cate: 'archive', index: '4', src: 'images/large/004.jpg' }, { cate: 'archive', index: '5', src: 'images/large/005.jpg' }, { cate: 'archive', index: '6', src: 'images/large/006.jpg' }, { cate: 'archive', index: '7', src: 'images/large/007.jpg' }, { cate: 'archive', index: '8', src: 'images/large/008.jpg' }, { cate: 'archive', index: '9', src: 'images/large/009.jpg' }, { cate: 'archive', index: '10', src: 'images/large/010.jpg' }, { cate: 'archive', index: '11', src: 'images/large/011.jpg' }, { cate: 'archive', index: '12', src: 'images/large/012.jpg' }, { cate: 'archive', index: '13', src: 'images/large/013.jpg' }, { cate: 'archive', index: '14', src: 'images/large/014.jpg' }, { cate: 'archive', index: '15', src: 'images/large/002-1.jpg' }, { cate: 'archive', index: '16', src: 'images/large/003-1.jpg' }, { cate: 'archive', index: '17', src: 'images/large/004-1.jpg' }, { cate: 'archive', index: '18', src: 'images/large/005-1.jpg' }, { cate: 'archive', index: '19', src: 'images/large/006-1.jpg' }, { cate: 'archive', index: '20', src: 'images/large/design+archive.jpg' }, { cate: 'archive', index: '21', src: 'images/large/design+archive2.jpg' }, { cate: 'archive', index: '22', src: 'images/large/design+archive3.jpg' }, { cate: 'archive', index: '23', src: 'images/large/design+archive4.jpeg' }, { cate: 'archive', index: '24', src: 'images/large/design+archive5.jpg' }],
+      imgsMd03: [{ cate: 'costume', index: '1', src: 'images/middle/9nine+single+cover+costume+design+styling.jpg', title: 'Costume Design' }, { cate: 'costume', index: '2', src: 'images/middle/9nine+costume+design+a-nation.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '3', src: 'images/middle/9nine+costume+design.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '4', src: 'images/middle/ai+tominaga+.jpg', title: 'Costume Design' }, { cate: 'costume', index: '5', src: 'images/middle/ai+tominaga2.jpg', title: 'Costume Design' }, { cate: 'costume', index: '6', src: 'images/middle/BENI+costume+design+live+tour.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '7', src: 'images/middle/beni+live+tour+costume+design+3.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '8', src: 'images/middle/BENI+styling.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '9', src: 'images/middle/beni+styling3.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '10', src: 'images/middle/beni+styling4.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '11', src: 'images/middle/color-code+costume+design+tokyo+girls+collection.jpg', title: 'Costume Design' }, { cate: 'costume', index: '12', src: 'images/middle/color-code+costume+design.jpg', title: 'Costume Design' }, { cate: 'costume', index: '13', src: 'images/middle/color-code+tokyo+girls+collection.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '14', src: 'images/middle/hongkong+adidas+fashion+show+costume+design.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '15', src: 'images/middle/mademoiselle+yulia.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '16', src: 'images/middle/mademoiselle+yulia+costume+design.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '17', src: 'images/middle/MAKIII+single+cover+costume+design.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '18', src: 'images/middle/MAKIII+single+cover+costume+design+2.jpg', title: 'Costume Design' }, { cate: 'costume', index: '19', src: 'images/middle/mari+natsuki+costume+design+tokyo+rainbow+parade.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '20', src: 'images/middle/mari+natsuki+costume+design+tokyo+rainbow+parade2.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '21', src: 'images/middle/mari+natsuki+styling.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '22', src: 'images/middle/meisa+kuroki.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '23', src: 'images/middle/meisa+kuroki+single+cover+.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '24', src: 'images/middle/meisa+kuroki+single+MV+costume+design.jpg', title: 'Costume Design' }, { cate: 'costume', index: '25', src: 'images/middle/meisa+kuroki2.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '26', src: 'images/middle/miliyah+kato.jpg', title: 'Costume Design' }, { cate: 'costume', index: '27', src: 'images/middle/miliyah+kato2.jpg', title: 'Costume Design' }, { cate: 'costume', index: '28', src: 'images/middle/miliyah+kato+costume+design.jpg', title: 'Costume Design' }, { cate: 'costume', index: '29', src: 'images/middle/miliyah+kato+costume+design2.jpeg', title: 'Costume Design' }, { cate: 'costume', index: '30', src: 'images/middle/perfume+costume+design.jpg', title: 'Costume Design' }, { cate: 'costume', index: '31', src: 'images/middle/perfume+costume+design+live+tour.jpg', title: 'Costume Design' }, { cate: 'costume', index: '32', src: 'images/middle/Rio+single+cover+costume+design.jpg', title: 'Costume Design' }, { cate: 'costume', index: '33', src: 'images/middle/YOON.png', title: 'Costume Design' }, { cate: 'costume', index: '34', src: 'images/middle/yuki+koyanagi+costume+design.jpeg', title: 'Costume Design' }],
+      imgsLg03: [{ cate: 'costume', index: '1', src: 'images/large/9nine+single+cover+costume+design+styling.jpg' }, { cate: 'costume', index: '2', src: 'images/large/9nine+costume+design+a-nation.jpeg' }, { cate: 'costume', index: '3', src: 'images/large/9nine+costume+design.jpeg' }, { cate: 'costume', index: '4', src: 'images/large/ai+tominaga+.jpg' }, { cate: 'costume', index: '5', src: 'images/large/ai+tominaga2.jpg' }, { cate: 'costume', index: '6', src: 'images/large/BENI+costume+design+live+tour.jpeg' }, { cate: 'costume', index: '7', src: 'images/large/beni+live+tour+costume+design+3.jpeg' }, { cate: 'costume', index: '8', src: 'images/large/BENI+styling.jpeg' }, { cate: 'costume', index: '9', src: 'images/large/beni+styling3.jpeg' }, { cate: 'costume', index: '10', src: 'images/large/beni+styling4.jpeg' }, { cate: 'costume', index: '11', src: 'images/large/color-code+costume+design+tokyo+girls+collection.jpg' }, { cate: 'costume', index: '12', src: 'images/large/color-code+costume+design.jpg' }, { cate: 'costume', index: '13', src: 'images/large/color-code+tokyo+girls+collection.jpeg' }, { cate: 'costume', index: '14', src: 'images/large/hongkong+adidas+fashion+show+costume+design.jpeg' }, { cate: 'costume', index: '15', src: 'images/large/mademoiselle+yulia.jpeg' }, { cate: 'costume', index: '16', src: 'images/large/mademoiselle+yulia+costume+design.jpeg' }, { cate: 'costume', index: '17', src: 'images/large/MAKIII+single+cover+costume+design.jpeg' }, { cate: 'costume', index: '18', src: 'images/large/MAKIII+single+cover+costume+design+2.jpg' }, { cate: 'costume', index: '19', src: 'images/large/mari+natsuki+costume+design+tokyo+rainbow+parade.jpeg' }, { cate: 'costume', index: '20', src: 'images/large/mari+natsuki+costume+design+tokyo+rainbow+parade2.jpeg' }, { cate: 'costume', index: '21', src: 'images/large/mari+natsuki+styling.jpeg' }, { cate: 'costume', index: '22', src: 'images/large/meisa+kuroki.jpeg' }, { cate: 'costume', index: '23', src: 'images/large/meisa+kuroki+single+cover+.jpeg' }, { cate: 'costume', index: '24', src: 'images/large/meisa+kuroki+single+MV+costume+design.jpg' }, { cate: 'costume', index: '25', src: 'images/large/meisa+kuroki2.jpeg' }, { cate: 'costume', index: '26', src: 'images/large/miliyah+kato.jpg' }, { cate: 'costume', index: '27', src: 'images/large/miliyah+kato2.jpg' }, { cate: 'costume', index: '28', src: 'images/large/miliyah+kato+costume+design.jpg' }, { cate: 'costume', index: '29', src: 'images/large/miliyah+kato+costume+design2.jpeg' }, { cate: 'costume', index: '30', src: 'images/large/perfume+costume+design.jpg' }, { cate: 'costume', index: '31', src: 'images/large/perfume+costume+design+live+tour.jpg' }, { cate: 'costume', index: '32', src: 'images/large/Rio+single+cover+costume+design.jpg' }, { cate: 'costume', index: '33', src: 'images/large/YOON.png' }, { cate: 'costume', index: '34', src: 'images/large/yuki+koyanagi+costume+design.jpeg' }],
       isShow: false,
       isFlashig: false,
-      modalId: '',
-      modalClass: '',
-      modalSrc: '',
       isCover: false
     };
   },
   methods: {
+    mounted: function () {
+      //sessionStorageリセット
+      sessionStorage.removeItem('countModalMoreproject');
+    },
     modal: function (e) {
       e.preventDefault();
       let moreprojectData = e.target.dataset;
@@ -21366,8 +21305,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     prev: function (e) {
       e.preventDefault();
-      let body = document.getElementsByClassName('p-moreproject-modal__body');
-      let flagCover = body[0].classList.contains('is-cover');
+      let flagCover = this.$refs.modBody.classList.contains('is-cover');
       let showImage = document.getElementsByClassName('js-show');
       let prevImage = showImage[0].previousElementSibling;
 
@@ -21384,8 +21322,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     next: function (e) {
       e.preventDefault();
-      let body = document.getElementsByClassName('p-moreproject-modal__body');
-      let flagCover = body[0].classList.contains('is-cover');
+      let flagCover = this.$refs.modBody.classList.contains('is-cover');
       let showImage = document.getElementsByClassName('js-show');
       let nextImage = showImage[0].nextElementSibling;
 
@@ -21400,15 +21337,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }, 1200);
       }
     }
-  },
-  mounted: function () {
-    //sessionStorageリセット
-    sessionStorage.removeItem('countModalMoreproject');
   }
 });
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports) {
 
 /**
@@ -21440,7 +21373,7 @@ module.exports = function listToStyles(parentId, list) {
 };
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(15)(false);
@@ -21454,7 +21387,7 @@ exports.push([module.i, "\n.fade-enter-active[data-v-00c9e6e6] {\n  transition: 
 
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -21462,7 +21395,7 @@ var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(19),
   /* template */
-  __webpack_require__(48),
+  __webpack_require__(45),
   /* styles */
   null,
   /* scopeId */
@@ -21494,7 +21427,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -21502,7 +21435,7 @@ var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(20),
   /* template */
-  __webpack_require__(50),
+  __webpack_require__(47),
   /* styles */
   null,
   /* scopeId */
@@ -21534,7 +21467,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -21542,7 +21475,7 @@ var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(21),
   /* template */
-  __webpack_require__(41),
+  __webpack_require__(38),
   /* styles */
   null,
   /* scopeId */
@@ -21574,7 +21507,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -21582,47 +21515,7 @@ var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(22),
   /* template */
-  __webpack_require__(40),
-  /* styles */
-  null,
-  /* scopeId */
-  null,
-  /* moduleIdentifier (server only) */
-  null
-)
-Component.options.__file = "/Users/jetkys10/Desktop/sample-vue-01/app/src/components/globals/loading.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] loading.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-10dea18f", Component.options)
-  } else {
-    hotAPI.reload("data-v-10dea18f", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(23),
-  /* template */
-  __webpack_require__(49),
+  __webpack_require__(46),
   /* styles */
   null,
   /* scopeId */
@@ -21654,15 +21547,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 37 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(24),
+  __webpack_require__(23),
   /* template */
-  __webpack_require__(47),
+  __webpack_require__(44),
   /* styles */
   null,
   /* scopeId */
@@ -21694,15 +21587,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 38 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(25),
+  __webpack_require__(24),
   /* template */
-  __webpack_require__(44),
+  __webpack_require__(41),
   /* styles */
   null,
   /* scopeId */
@@ -21734,11 +21627,11 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 39 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('loading-view'), _vm._v(" "), _c('div', {
+  return _c('div', [_c('div', {
     attrs: {
       "id": "wrap"
     },
@@ -21762,7 +21655,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "name": "fade"
     }
-  }, [_c('router-view')], 1)], 1), _vm._v(" "), _c('footer-view')], 1)], 1)
+  }, [_c('router-view')], 1)], 1), _vm._v(" "), _c('footer-view')], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -21773,40 +21666,7 @@ if (false) {
 }
 
 /***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('div', {
-    staticClass: "p-loading",
-    attrs: {
-      "id": "loader"
-    }
-  }, [_c('div', {
-    staticClass: "p-loading-obj"
-  }, [_c('canvas', {
-    staticClass: "p-loading-obj__canvas",
-    attrs: {
-      "data-processing-sources": "./sketch/loading.pde"
-    }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "p-loading-mess"
-  }, [_c('p', {
-    staticClass: "p-loading-mess__text"
-  }, [_vm._v("Now loading")])])])])
-}]}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-10dea18f", module.exports)
-  }
-}
-
-/***/ }),
-/* 41 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -21823,6 +21683,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._l((_vm.images), function(image) {
     return _c('div', {
+      ref: "hrImgs",
+      refInFor: true,
       staticClass: "p-hero__image",
       style: ({
         'background-image': 'url(' + image.src + ')'
@@ -21850,7 +21712,7 @@ if (false) {
 }
 
 /***/ }),
-/* 42 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -21915,7 +21777,7 @@ if (false) {
 }
 
 /***/ }),
-/* 43 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -21929,7 +21791,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "p-moreproject-section__title c-heading-02"
   }, [_vm._v("Colection")]), _vm._v(" "), _c('div', {
     staticClass: "p-moreproject-body"
-  }, _vm._l((_vm.imgMd01), function(image) {
+  }, _vm._l((_vm.imgsMd01), function(image) {
     return _c('article', {
       staticClass: "p-moreproject-article"
     }, [_c('img', {
@@ -21952,7 +21814,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "p-moreproject-section__title c-heading-02"
   }, [_vm._v("Design Archive")]), _vm._v(" "), _c('div', {
     staticClass: "p-moreproject-body"
-  }, _vm._l((_vm.imgMd02), function(image) {
+  }, _vm._l((_vm.imgsMd02), function(image) {
     return _c('article', {
       staticClass: "p-moreproject-article"
     }, [_c('img', {
@@ -21975,7 +21837,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "p-moreproject-section__title c-heading-02"
   }, [_vm._v("Costume Design")]), _vm._v(" "), _c('div', {
     staticClass: "p-moreproject-body"
-  }, _vm._l((_vm.imgMd03), function(image) {
+  }, _vm._l((_vm.imgsMd03), function(image) {
     return _c('article', {
       staticClass: "p-moreproject-article"
     }, [_c('img', {
@@ -21998,12 +21860,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       'is-show': _vm.isShow
     }
   }, [_c('div', {
+    ref: "modBody",
     staticClass: "p-moreproject-modal__body",
     class: {
       'is-cover': _vm.isCover
     }
-  }, [_vm._l((_vm.imgLg01), function(image) {
-    return _c('div', {
+  }, [_vm._l((_vm.imgsLg01), function(image) {
+    return _c('article', {
       staticClass: "p-moreproject-modal__wrap js-cate-colection",
       attrs: {
         "data-cate": image.cate,
@@ -22018,8 +21881,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }), _vm._v(" "), _c('h3', {
       staticClass: "p-moreproject-modal__title"
     })])
-  }), _vm._v(" "), _vm._l((_vm.imgLg02), function(image) {
-    return _c('div', {
+  }), _vm._v(" "), _vm._l((_vm.imgsLg02), function(image) {
+    return _c('article', {
       staticClass: "p-moreproject-modal__wrap js-cate-archive",
       attrs: {
         "data-cate": image.cate,
@@ -22034,8 +21897,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }), _vm._v(" "), _c('h3', {
       staticClass: "p-moreproject-modal__title"
     })])
-  }), _vm._v(" "), _vm._l((_vm.imgLg03), function(image) {
-    return _c('div', {
+  }), _vm._v(" "), _vm._l((_vm.imgsLg03), function(image) {
+    return _c('article', {
       staticClass: "p-moreproject-modal__wrap js-cate-costume",
       attrs: {
         "data-cate": image.cate,
@@ -22086,7 +21949,7 @@ if (false) {
 }
 
 /***/ }),
-/* 44 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -22107,13 +21970,11 @@ if (false) {
 }
 
 /***/ }),
-/* 45 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('div', {
-    staticClass: "l-main"
-  }, [_c('div', {
     staticClass: "p-project",
     attrs: {
       "id": "app"
@@ -22122,25 +21983,25 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "mousemove": _vm.mousepursuit
     }
   }, [_c('button', {
+    ref: "dragBtn",
     staticClass: "p-project-drag c-btn-circle c-skin-01",
-    attrs: {
-      "id": "drag-btn"
-    },
     on: {
       "mousedown": _vm.mousedown,
       "mousemove": _vm.mousemove,
       "mouseup": _vm.mouseup
     }
   }, [_vm._v("\n  Drag Me\n")]), _vm._v(" "), _c('div', {
-    staticClass: "p-project-body"
+    ref: "proBody",
+    staticClass: "p-project-main"
   }, _vm._l((_vm.imgMd), function(image) {
     return _c('article', {
-      staticClass: "p-project-article c-article"
+      ref: "proItems",
+      refInFor: true,
+      staticClass: "p-project-main__item"
     }, [_c('img', {
-      staticClass: "p-project-article__image",
+      staticClass: "p-project-main__image",
       class: _vm.animation,
       attrs: {
-        "id": image.id,
         "data-cate": image.cate,
         "data-index": image.index,
         "src": image.src,
@@ -22153,12 +22014,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "touchend": _vm.touchend
       }
     }), _vm._v(" "), _c('h3', {
-      staticClass: "p-project-article__title c-heading-02",
+      staticClass: "p-project-main__title c-heading-02",
       class: _vm.animation
     }, [_vm._v(_vm._s(image.title))])])
   })), _vm._v(" "), _c('router-link', {
+    ref: "proMore",
     staticClass: "p-project-more c-btn-square c-skin-01",
     attrs: {
+      "id": "more-btn",
       "tag": "button",
       "to": "/more"
     },
@@ -22173,13 +22036,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       'is-show': _vm.isShow
     }
   }, [_c('div', {
-    staticClass: "p-project-modal__body",
+    ref: "modWrap",
+    staticClass: "p-project-modal__wrap",
     class: {
       'is-cover': _vm.isCover
     }
   }, _vm._l((_vm.imgLg), function(image) {
-    return _c('div', {
-      staticClass: "p-project-modal__wrap",
+    return _c('article', {
+      ref: "modItems",
+      refInFor: true,
+      staticClass: "p-project-modal__item",
       attrs: {
         "data-cate": image.cate,
         "data-index": image.index
@@ -22188,12 +22054,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "p-project-modal__image",
       class: image.class,
       attrs: {
-        "id": image.id,
         "src": image.src,
         "alt": ""
       }
-    }), _vm._v(" "), _c('h3', {
-      staticClass: "p-project-modal__title"
     })])
   })), _vm._v(" "), _c('div', {
     staticClass: "p-project-modal__cross",
@@ -22220,7 +22083,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('span', {
     staticClass: "p-project-modal__arrow p-project-modal__arrow--rightward"
-  })])])])], 1)])])
+  })])])])], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -22231,7 +22094,7 @@ if (false) {
 }
 
 /***/ }),
-/* 46 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -22364,7 +22227,7 @@ if (false) {
 }
 
 /***/ }),
-/* 47 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -22391,7 +22254,7 @@ if (false) {
 }
 
 /***/ }),
-/* 48 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -22416,7 +22279,7 @@ if (false) {
 }
 
 /***/ }),
-/* 49 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -22601,7 +22464,7 @@ if (false) {
 }
 
 /***/ }),
-/* 50 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -22635,17 +22498,17 @@ if (false) {
 }
 
 /***/ }),
-/* 51 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(31);
+var content = __webpack_require__(30);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(52)("4051a554", content, false, {});
+var update = __webpack_require__(49)("4051a554", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -22661,7 +22524,7 @@ if(false) {
 }
 
 /***/ }),
-/* 52 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -22680,7 +22543,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(30)
+var listToStyles = __webpack_require__(29)
 
 /*
 type StyleObject = {

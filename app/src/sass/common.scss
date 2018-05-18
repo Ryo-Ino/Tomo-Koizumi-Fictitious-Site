@@ -1,15 +1,12 @@
 @charset "utf-8";
 
-/* Preset
-==============================*/
-
-@import "preset/variables";
-
 /* Foundation
 ==============================*/
 
 @import "foundation/reset";
 @import "foundation/base";
+@import "foundation/variables";
+@import "foundation/mixins";
 
 /* Layout
 ==============================*/
