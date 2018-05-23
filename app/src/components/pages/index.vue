@@ -2,41 +2,41 @@
 
 <div id="app" class="p-project" @mousemove="mousepursuit">
 
-<button class="p-project-drag c-btn-circle c-skin-01" ref="dragBtn" @mousedown="mousedown" @mousemove="mousemove" @mouseup="mouseup">
+<button class="p-project-drag c-btn-circle c-skin-01" data-page="text" ref="dragBtn" @mousedown="mousedown" @mousemove="mousemove" @mouseup="mouseup">
   Drag Me
 </button>
 
-  <div class="p-project-main" ref="proBody">
-    <article class="p-project-main__item" ref="proItems" v-for="image in imgMd">
-      <img class="p-project-main__image" :class="animation" :data-cate="image.cate" :data-index="image.index" :src="image.src" alt="" 
-      @click="modal" @touchstart="touchstart" @touchmove="touchmove" @touchend="touchend">
-      <h3 class="p-project-main__title c-heading-02" :class="animation">{{ image.title }}</h3>
+<div class="p-project-main" ref="proBody">
+  <article class="p-project-main__item" ref="proItems" v-for="image in imgMd">
+    <img class="p-project-main__image" :class="animation" :data-cate="image.cate" :data-index="image.index" :src="image.src" alt="" 
+    @click="modal" @touchstart="touchstart" @touchmove="touchmove" @touchend="touchend">
+    <h3 class="p-project-main__title" :class="animation">{{ image.title }}</h3>
+  </article>
+</div>
+
+<router-link id="more-btn" class="p-project-more c-btn-square c-skin-01" tag="button" to="/more" ref="proMore" @click.native="correction">
+  More Projects
+</router-link>
+
+<div class="p-project-modal" :class="{'is-show': isShow}"> 
+  <div class="p-project-modal__wrap" ref="modWrap" :class="{'is-cover': isCover}">
+    <article class="p-project-modal__item" :data-cate="image.cate" :data-index="image.index" ref="modItems" v-for="image in imgLg"> 
+      <img class="p-project-modal__image" :class="image.class" :src="image.src" alt="">
     </article>
+  </div>    
+  <div class="p-project-modal__cross" @click="hide">
+    <span class="p-project-modal__bar"></span>
+    <span class="p-project-modal__bar"></span>
   </div>
-
-  <router-link id="more-btn" class="p-project-more c-btn-square c-skin-01" tag="button" to="/more" ref="proMore" @click.native="correction">
-    More Projects
-  </router-link>
-
-  <div class="p-project-modal" :class="{'is-show': isShow}"> 
-    <div class="p-project-modal__wrap" ref="modWrap" :class="{'is-cover': isCover}">
-      <article class="p-project-modal__item" :data-cate="image.cate" :data-index="image.index" ref="modItems" v-for="image in imgLg"> 
-        <img class="p-project-modal__image" :class="image.class" :src="image.src" alt="">
-      </article>
-    </div>    
-    <div class="p-project-modal__cross" @click="hide">
-      <span class="p-project-modal__bar"></span>
-      <span class="p-project-modal__bar"></span>
-    </div>
-    <div class="p-project-modal__switch">
-      <button class="p-project-modal__btn p-project-modal__prev c-btn-square c-skin-02" @click="prev">
-        <span class="p-project-modal__arrow p-project-modal__arrow--leftward"></span>
-      </button>
-      <button class="p-project-modal__btn p-project-modal__next c-btn-square c-skin-02" @click="next">
-        <span class="p-project-modal__arrow p-project-modal__arrow--rightward"></span> 
-      </button>
-    </div>
+  <div class="p-project-modal__switch">
+    <button class="p-project-modal__btn p-project-modal__prev c-btn-square c-skin-02" @click="prev">
+      <span class="p-project-modal__arrow p-project-modal__arrow--leftward"></span>
+    </button>
+    <button class="p-project-modal__btn p-project-modal__next c-btn-square c-skin-02" @click="next">
+      <span class="p-project-modal__arrow p-project-modal__arrow--rightward"></span> 
+    </button>
   </div>
+</div>
 
 </div>
 

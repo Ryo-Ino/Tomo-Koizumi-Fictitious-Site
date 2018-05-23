@@ -1,12 +1,16 @@
 @charset "utf-8";
 
+/* Preset
+==============================*/
+
+@import "preset/variables.scss";
+@import "preset/mixins.scss";
+
 /* Foundation
 ==============================*/
 
 @import "foundation/reset";
 @import "foundation/base";
-@import "foundation/variables";
-@import "foundation/mixins";
 
 /* Layout
 ==============================*/
@@ -22,7 +26,6 @@
 /* Component
 ------------------------------*/
 
-@import "object/component/heading";
 @import "object/component/button";
 @import "object/component/shape";
 @import "object/component/skin";

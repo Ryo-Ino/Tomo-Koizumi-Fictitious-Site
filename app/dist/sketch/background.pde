@@ -5,7 +5,7 @@ void setup() {
 }
 
 void draw() {
-   background(#ffffff);
+  background(#ffffff);
   
   for(int i = 0; i < 9; i++){
     stroke(random(255), random(255), random(255));

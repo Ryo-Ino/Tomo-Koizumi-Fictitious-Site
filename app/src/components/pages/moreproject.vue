@@ -5,13 +5,13 @@
 <div class="p-moreproject">
 
   <section class="p-moreproject-section">
-    <h2 class="p-moreproject-section__title c-heading-02">Colection</h2>
+    <h2 class="p-moreproject-section__title c-heading-1">Colection</h2>
     
     <div class="p-moreproject-body">
 
       <article class="p-moreproject-article" v-for="image in imgsMd01">
         <img class="p-moreproject-article__image" :data-cate="image.cate" :data-index="image.index"  :src="image.src" alt="" @click="modal">
-        <h3 class="p-moreproject-article__title">{{ image.title }}</h3>
+        <h3 class="p-moreproject-article__title c-heading-2">{{ image.title }}</h3>
       </article>
       
     </div>
@@ -19,13 +19,13 @@
   </section>
 
   <section class="p-moreproject-section">
-    <h2 class="p-moreproject-section__title c-heading-02">Design Archive</h2>
+    <h2 class="p-moreproject-section__title c-heading-1">Design Archive</h2>
 
     <div class="p-moreproject-body">
 
       <article class="p-moreproject-article" v-for="image in imgsMd02">
         <img class="p-moreproject-article__image" :data-cate="image.cate" :data-index="image.index" :src="image.src" alt="" @click="modal">
-        <h3 class="p-moreproject-article__title">{{ image.title }}</h3>
+        <h3 class="p-moreproject-article__title c-heading-2">{{ image.title }}</h3>
       </article>
 
     </div>
@@ -33,13 +33,13 @@
   </section>
 
   <section class="p-moreproject-section">
-    <h2 class="p-moreproject-section__title c-heading-02">Costume Design</h2>
+    <h2 class="p-moreproject-section__title c-heading-1">Costume Design</h2>
 
     <div class="p-moreproject-body">
 
       <article class="p-moreproject-article" v-for="image in imgsMd03">
         <img class="p-moreproject-article__image" :data-cate="image.cate" :data-index="image.index" :src="image.src" alt="" @click="modal">
-        <h3 class="p-moreproject-article__title">{{image.title}}</h3>
+        <h3 class="p-moreproject-article__title c-heading-2">{{image.title}}</h3>
       </article>
 
     </div>
@@ -50,15 +50,12 @@
     <div class="p-moreproject-modal__body" ref="modBody" :class="{'is-cover': isCover}">
       <article class="p-moreproject-modal__wrap js-cate-colection" :data-cate="image.cate" :data-index="image.index" v-for="image in imgsLg01"> 
         <img class="p-moreproject-modal__image" :src="image.src" alt="">
-        <h3 class="p-moreproject-modal__title"></h3>
       </article>
        <article class="p-moreproject-modal__wrap js-cate-archive" :data-cate="image.cate" :data-index="image.index" v-for="image in imgsLg02"> 
         <img class="p-moreproject-modal__image" :src="image.src" alt="">
-        <h3 class="p-moreproject-modal__title"></h3>
       </article>
        <article class="p-moreproject-modal__wrap js-cate-costume" :data-cate="image.cate" :data-index="image.index" v-for="image in imgsLg03"> 
         <img class="p-moreproject-modal__image" :src="image.src" alt="">
-        <h3 class="p-moreproject-modal__title"></h3>
       </article>
     </div>    
     <div class="p-moreproject-modal__cross" @click="hide">

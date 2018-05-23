@@ -30,10 +30,13 @@ export default {
       isFade: false,
       touchStartY: 0,
       touchMoveY: 0,
-      container:''
+      body: '',
+      container: '',
+      openClass: '',
     }
   },
   mounted: function(){
+    this.body = document.getElementsByTagName('body');
     this.container = document.getElementById('container');
     let page = sessionStorage.getItem('heroPage') || 0;
     let lastPage = this.$refs.hrImgs.length-1;
@@ -59,9 +62,6 @@ export default {
       }  
     }, 3000);
     
-    
-    
-
     //sessionStorageリセット
     sessionStorage.removeItem('heroPage');  
   },
@@ -89,10 +89,12 @@ export default {
   },
   computed: {
     open: function() {
-      this.container.style.overflow = 'visible';
       this.container.style.opacity = '1';
       this.$store.state.flagOpen = true;
       this.isFade = this.$store.state.flagOpen;
+      setTimeout(() => {
+        this.body[0].style.overflow = 'visible';
+      }, 100);
     }
   }
 }

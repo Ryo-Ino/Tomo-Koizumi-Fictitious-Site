@@ -19908,7 +19908,8 @@ const store = new __WEBPACK_IMPORTED_MODULE_3_vuex__["a" /* default */].Store({
         flagOpen: false,
         flagTrans: false,
         pageMoreProject: false,
-        pageProject: true
+        pageProject: true,
+        pageStay: true
     },
     mutations: {
         start(state) {
@@ -19937,7 +19938,6 @@ function opacity() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve('success');
-            reject('error');
             loader.style.opacity = '0';
         }, 2000);
     });
@@ -19947,14 +19947,12 @@ function display() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve('success');
-            reject('error');
             loader.style.display = 'none';
         }, 500);
     });
 }
-window.onload = function () {
-    opacity().then(display);
-};
+
+opacity().then(display);
 
 new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     store,
@@ -20347,7 +20345,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -20447,8 +20444,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function () {
@@ -20490,10 +20485,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       isFade: false,
       touchStartY: 0,
       touchMoveY: 0,
-      container: ''
+      body: '',
+      container: '',
+      openClass: ''
     };
   },
   mounted: function () {
+    this.body = document.getElementsByTagName('body');
     this.container = document.getElementById('container');
     let page = sessionStorage.getItem('heroPage') || 0;
     let lastPage = this.$refs.hrImgs.length - 1;
@@ -20546,10 +20544,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   computed: {
     open: function () {
-      this.container.style.overflow = 'visible';
       this.container.style.opacity = '1';
       this.$store.state.flagOpen = true;
       this.isFade = this.$store.state.flagOpen;
+      setTimeout(() => {
+        this.body[0].style.overflow = 'visible';
+      }, 100);
     }
   }
 });
@@ -21237,9 +21237,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function () {
@@ -21788,7 +21785,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('section', {
     staticClass: "p-moreproject-section"
   }, [_c('h2', {
-    staticClass: "p-moreproject-section__title c-heading-02"
+    staticClass: "p-moreproject-section__title c-heading-1"
   }, [_vm._v("Colection")]), _vm._v(" "), _c('div', {
     staticClass: "p-moreproject-body"
   }, _vm._l((_vm.imgsMd01), function(image) {
@@ -21806,12 +21803,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "click": _vm.modal
       }
     }), _vm._v(" "), _c('h3', {
-      staticClass: "p-moreproject-article__title"
+      staticClass: "p-moreproject-article__title c-heading-2"
     }, [_vm._v(_vm._s(image.title))])])
   }))]), _vm._v(" "), _c('section', {
     staticClass: "p-moreproject-section"
   }, [_c('h2', {
-    staticClass: "p-moreproject-section__title c-heading-02"
+    staticClass: "p-moreproject-section__title c-heading-1"
   }, [_vm._v("Design Archive")]), _vm._v(" "), _c('div', {
     staticClass: "p-moreproject-body"
   }, _vm._l((_vm.imgsMd02), function(image) {
@@ -21829,12 +21826,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "click": _vm.modal
       }
     }), _vm._v(" "), _c('h3', {
-      staticClass: "p-moreproject-article__title"
+      staticClass: "p-moreproject-article__title c-heading-2"
     }, [_vm._v(_vm._s(image.title))])])
   }))]), _vm._v(" "), _c('section', {
     staticClass: "p-moreproject-section"
   }, [_c('h2', {
-    staticClass: "p-moreproject-section__title c-heading-02"
+    staticClass: "p-moreproject-section__title c-heading-1"
   }, [_vm._v("Costume Design")]), _vm._v(" "), _c('div', {
     staticClass: "p-moreproject-body"
   }, _vm._l((_vm.imgsMd03), function(image) {
@@ -21852,7 +21849,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "click": _vm.modal
       }
     }), _vm._v(" "), _c('h3', {
-      staticClass: "p-moreproject-article__title"
+      staticClass: "p-moreproject-article__title c-heading-2"
     }, [_vm._v(_vm._s(image.title))])])
   }))]), _vm._v(" "), _c('div', {
     staticClass: "p-moreproject-modal",
@@ -21878,8 +21875,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "src": image.src,
         "alt": ""
       }
-    }), _vm._v(" "), _c('h3', {
-      staticClass: "p-moreproject-modal__title"
     })])
   }), _vm._v(" "), _vm._l((_vm.imgsLg02), function(image) {
     return _c('article', {
@@ -21894,8 +21889,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "src": image.src,
         "alt": ""
       }
-    }), _vm._v(" "), _c('h3', {
-      staticClass: "p-moreproject-modal__title"
     })])
   }), _vm._v(" "), _vm._l((_vm.imgsLg03), function(image) {
     return _c('article', {
@@ -21910,8 +21903,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "src": image.src,
         "alt": ""
       }
-    }), _vm._v(" "), _c('h3', {
-      staticClass: "p-moreproject-modal__title"
     })])
   })], 2), _vm._v(" "), _c('div', {
     staticClass: "p-moreproject-modal__cross",
@@ -21985,6 +21976,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('button', {
     ref: "dragBtn",
     staticClass: "p-project-drag c-btn-circle c-skin-01",
+    attrs: {
+      "data-page": "text"
+    },
     on: {
       "mousedown": _vm.mousedown,
       "mousemove": _vm.mousemove,
@@ -22014,7 +22008,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "touchend": _vm.touchend
       }
     }), _vm._v(" "), _c('h3', {
-      staticClass: "p-project-main__title c-heading-02",
+      staticClass: "p-project-main__title",
       class: _vm.animation
     }, [_vm._v(_vm._s(image.title))])])
   })), _vm._v(" "), _c('router-link', {
@@ -22030,7 +22024,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         return _vm.correction($event)
       }
     }
-  }, [_vm._v("\n    More Projects\n  ")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n  More Projects\n")]), _vm._v(" "), _c('div', {
     staticClass: "p-project-modal",
     class: {
       'is-show': _vm.isShow
@@ -22290,7 +22284,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('li', {
     staticClass: "p-nav-menu__item"
   }, [_c('router-link', {
-    staticClass: "p-nav-menu__text is-hover-01",
+    staticClass: "p-nav-menu__text is-hover",
     attrs: {
       "to": "/"
     },
@@ -22312,7 +22306,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("Home")])])], 1), _vm._v(" "), _c('li', {
     staticClass: "p-nav-menu__item"
   }, [_c('router-link', {
-    staticClass: "p-nav-menu__text is-hover-01",
+    staticClass: "p-nav-menu__text is-hover",
     attrs: {
       "to": "/about"
     },
@@ -22324,7 +22318,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("About")])], 1), _vm._v(" "), _c('li', {
     staticClass: "p-nav-menu__item"
   }, [_c('router-link', {
-    staticClass: "p-nav-menu__text is-hover-01",
+    staticClass: "p-nav-menu__text is-hover",
     attrs: {
       "to": "/contact"
     },
@@ -22474,20 +22468,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "top"
     }
   }, [_c('div', {
-    staticClass: "l-header-inner"
-  }, [_c('h1', {
-    staticClass: "l-header-logo c-heading-01"
+    staticClass: "l-header__wrap"
   }, [_c('router-link', {
-    staticClass: "is-logoani-01",
+    staticClass: "l-header__logo",
     attrs: {
-      "to": "/"
+      "to": "/",
+      "tag": "h1"
     },
     nativeOn: {
       "click": function($event) {
         return _vm.reload($event)
       }
     }
-  }, [_vm._v("TOMO"), _c('br'), _vm._v("KOIZUMI")])], 1)])])])
+  }, [_vm._v("TOMO"), _c('br'), _vm._v("KOIZUMI")])], 1)])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

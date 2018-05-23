@@ -24,6 +24,7 @@
     }
     &-drag:active {
         cursor: grabbing;
+        will-change: transform, animation;
     }
     &-drag::before {
         content: "Let's Go";
@@ -69,7 +70,7 @@
             max-width: 100%;
             height: auto;
             max-height: calc(100vh - 196px);
-            box-shadow: 0 32px 16px -16px $color-tspt02;
+            box-shadow: 0 24px 16px -16px $color-tspt02;
             cursor: pointer;
             transition: .8s;
             transform: scale(0, 1);
@@ -85,6 +86,7 @@
             width: auto;
             line-height: 1.5rem;
             font-size: 1rem;
+            font-weight: 400;
             letter-spacing: 1.6pt;
             color: $color-main;
             transition: .8s;

@@ -12,7 +12,6 @@
   <div id="container">
 
     <canvas id="canvas" data-processing-sources="./sketch/background.pde"></canvas>
-
     <trans-view></trans-view>
     
     <transition name="fade">
@@ -55,7 +54,6 @@ export default {
     window.onorientationchange = function(){
       location.reload();
     };
-
   },
   methods:{
     handleScroll() {

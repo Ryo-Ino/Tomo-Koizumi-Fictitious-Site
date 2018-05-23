@@ -4,16 +4,16 @@
 
       <ul class="p-nav-menu">
         <li class="p-nav-menu__item">
-          <router-link to="/" class="p-nav-menu__text is-hover-01" @click.native="pageMove()">
+          <router-link to="/" class="p-nav-menu__text is-hover" @click.native="pageMove()">
             <span class="p-nav-menu__word--works" :class="{'is-show': this.$store.state.pageProject}">Works</span>
             <span class="p-nav-menu__word--home" :class="{'is-show': this.$store.state.pageMoreProject}">Home</span>
           </router-link>
         </li>
         <li class="p-nav-menu__item">
-          <router-link to="/about" class="p-nav-menu__text is-hover-01" @click.native="pageMove()">About</router-link>
+          <router-link to="/about" class="p-nav-menu__text is-hover" @click.native="pageMove()">About</router-link>
         </li>
         <li class="p-nav-menu__item">
-          <router-link to="/contact" class="p-nav-menu__text is-hover-01" @click.native="pageMove()">Contact</router-link>
+          <router-link to="/contact" class="p-nav-menu__text is-hover" @click.native="pageMove()">Contact</router-link>
         </li>
         <li class="p-nav-menu__item">
           <router-link to="" class="p-nav-menu__sns">

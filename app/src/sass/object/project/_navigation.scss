@@ -33,6 +33,33 @@
         &__word--home {
             display: none;
         }
+        .is-hover {
+            position: relative;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .is-hover::after {
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 1px;
+            background: $color-main;
+            opacity: 0;
+            visibility: hidden;
+            transition: .4s;
+        }
+        .is-hover:visited::after {
+            bottom: -4px;
+            opacity: 1;
+            visibility: visible;
+        }
+        .is-hover:hover::after {
+            bottom: -4px;
+            opacity: 1;
+            visibility: visible;
+        }
     }
     &-hambtn {
         display: none;

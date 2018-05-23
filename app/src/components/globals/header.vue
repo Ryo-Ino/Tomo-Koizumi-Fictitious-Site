@@ -3,12 +3,10 @@
 <!-- header -->
 <header id="top" class="l-header">
 
-  <div class="l-header-inner">
+  <div class="l-header__wrap">
 
-    <h1 class="l-header-logo c-heading-01">
-      <router-link to="/" class="is-logoani-01" @click.native="reload">TOMO<br>KOIZUMI</router-link>
-    </h1>
-
+  <router-link to="/" tag="h1" class="l-header__logo" @click.native="reload">TOMO<br>KOIZUMI</router-link>
+  
   </div>
 
 </header>

@@ -8,37 +8,6 @@
 }
 
 //hover animaton
-.is-hover-01 {
-    position: relative;
-    display: inline-block;
-    text-decoration: none;
-}
-
-.is-hover-01::after {
-    position: absolute;
-    bottom: 2px;
-    left: 0;
-    content: '';
-    width: 100%;
-    height: 1px;
-    background: $color-main;
-    opacity: 0;
-    visibility: hidden;
-    transition: .4s;
-}
-
-.is-hover-01:visited::after {
-    bottom: -4px;
-    opacity: 1;
-    visibility: visible;
-}
-
-.is-hover-01:hover::after {
-    bottom: -4px;
-    opacity: 1;
-    visibility: visible;
-}
-
 .is-hover-02 {
     position: relative;
     display: inline-block;

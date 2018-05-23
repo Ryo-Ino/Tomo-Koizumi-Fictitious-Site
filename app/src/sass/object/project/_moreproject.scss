@@ -8,6 +8,7 @@
     &-section {
         margin-bottom: 128px;
         &__title {
+            padding: .5rem 1rem;
             border-bottom: 1px $color-main solid;
             font-size: 1.2rem;
         }
@@ -48,9 +49,9 @@
         &__title {
             text-align: center;
             margin-top: 1rem;
-            padding: .5rem;
             line-height: 1rem;
             font-size: .8rem;
+            font-weight: 400;
             letter-spacing: 1.6pt;
             transition: .4s;
         }

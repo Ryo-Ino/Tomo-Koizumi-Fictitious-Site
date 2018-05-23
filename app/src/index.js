@@ -6,7 +6,6 @@ import Vuex from 'vuex';
 import VeeValidate, { Validator } from 'vee-validate';
 import ja from 'vee-validate/dist/locale/ja';
 
-
 //app
 import App from './App.vue';
 // pages
@@ -32,7 +31,6 @@ Vue.use(Vuex);
 Validator.localize('ja', ja);
 Vue.use(VeeValidate, { locale: ja });
 
-
 const router = new VueRouter({
     routes: [
         { path: '/', component: index },
@@ -46,7 +44,8 @@ const store = new Vuex.Store({
         flagOpen: false,
         flagTrans: false,
         pageMoreProject: false,
-        pageProject: true
+        pageProject: true,
+        pageStay: true
     },
     mutations: {
         start(state) { state.flagTrans = true },
@@ -71,7 +70,6 @@ function opacity() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve('success');
-            reject('error');
             loader.style.opacity = '0';
         }, 2000);
     });
@@ -81,14 +79,12 @@ function display() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve('success');
-            reject('error');
             loader.style.display = 'none';
         }, 500);
     });
 }
-window.onload = function() {
-    opacity().then(display);
-}
+
+opacity().then(display);
 
 new Vue({
     store,

@@ -1,5 +1,8 @@
+@import "preset/variables.scss";
+@import "preset/mixins.scss";
 html {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 *,
@@ -18,9 +21,9 @@ body {
 }
 
 body {
+    overflow: hidden;
     background-color: $color-base;
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Noto Sans Japanese", "ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
-    font-family: 'Yantramanav', sans-serif;
+    font-family: $sans-serif;
     font-weight: 400;
     letter-spacing: .8pt;
     -webkit-text-size-adjust: 100%;
@@ -34,7 +37,6 @@ body {
 }
 
 #container {
-    overflow: hidden;
     width: 100%;
     height: 100%;
     opacity: 0;
