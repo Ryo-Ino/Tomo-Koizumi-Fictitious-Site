@@ -1,7 +1,5 @@
 .p-scroll {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include innerMiddle;
     position: fixed;
     right: 40px;
     bottom: 40px;

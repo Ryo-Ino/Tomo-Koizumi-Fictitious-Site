@@ -137,9 +137,7 @@
 .p-sidebar {
     display: none;
     @media screen and (max-width: $responsive-md) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include innerMiddle;
         position: fixed;
         top: -100%;
         right: 0;

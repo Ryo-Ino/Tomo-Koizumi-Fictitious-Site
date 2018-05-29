@@ -234,10 +234,6 @@ export default {
     }
   },
   methods: {
-    mounted: function (){
-      //sessionStorageリセット
-      sessionStorage.removeItem('countModalMoreproject');
-    },
     modal: function(e){
       e.preventDefault();
       let moreprojectData = e.target.dataset;

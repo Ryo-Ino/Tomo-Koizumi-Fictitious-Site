@@ -15,17 +15,13 @@
         margin-bottom: 0;
     }
     &-main {
-        display: flex;
-        justify-content: center;
-        align-content: center;
+        @include innerMiddle;
         position: relative;
         @media screen and(max-width: $responsive-md) {
             flex-flow: column;
         }
         &__box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include innerMiddle;
             width: 50%;
             @media screen and (max-width: $responsive-md) {
                 width: 100%;
@@ -38,6 +34,7 @@
         }
         &__title {
             text-align: center;
+            padding: .5rem 1rem;
             border-bottom: 1px $color-main solid;
             font-family: $serif;
             font-size: 1.6rem;
@@ -86,6 +83,10 @@
                 line-height: 1.5rem;
             }
         }
+        &__description--eg {
+            color: $color-sub;
+            font-size: .8rem;
+        }
     }
     &-publish {
         display: flex;
@@ -111,7 +112,7 @@
         }
         &__title {
             margin-bottom: 8px;
-            padding: 4px 8px;
+            padding: .5rem 1rem;
             border-bottom: 1px $color-main solid;
             font-size: 1.2rem;
             @media screen and(max-width: $responsive-md) {

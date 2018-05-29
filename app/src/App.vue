@@ -11,8 +11,9 @@
 
   <div id="container">
 
-    <canvas id="canvas" data-processing-sources="./sketch/background.pde"></canvas>
     <trans-view></trans-view>
+    
+    <div id="myCanvas"></div>
     
     <transition name="fade">
       <router-view></router-view>
@@ -78,10 +79,11 @@ export default {
 
 <style lang='scss' scoped>
 .fade-enter-active {
-  transition: all .8s ease-in;
+  transition: all .4s ease-in;
+  transition-delay: 1.2s;
 }
 .fade-leave-active {
-  transition: all .8s ease-in;
+  transition: all .4s ease-in;
 }
 .fade-enter, .fade-leave-to{
   opacity: 0;

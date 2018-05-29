@@ -1,7 +1,5 @@
 .overlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include innerMiddle;
     position: fixed;
     background: $color-base;
     top: 0;

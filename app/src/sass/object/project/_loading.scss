@@ -1,31 +1,33 @@
 .p-loading {
-    display: flex;
+    @include innerMiddle;
     flex-flow: column;
-    justify-content: center;
-    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: $color-base;
     z-index: 60;
     overflow: hidden;
     &-obj {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-flow: column;
+        overflow: hidden;
         width: 96px;
-        height: 40px;
+        height: 96px;
+        border: 1px $color-sub solid;
         &__item {
-            display: inline-block;
-            width: 2px;
+            display: block;
+            margin-bottom: 18px;
+            width: 100%;
             height: 2px;
-            background-color: $color-main;
-            will-change: transform, animation;
+            opacity: 0;
+            transform-origin: left;
+            transform: scale3d(0, 1, 1);
+        }
+        &__item:first-child {
+            margin-top: 18px;
         }
         &__item--red {
+            background-color: #C78693;
             animation-name: trans-red;
             animation-iteration-count: infinite;
             animation-duration: 1s;
@@ -34,18 +36,19 @@
         }
         @keyframes trans-red {
             0% {
-                transform: translateY(40px);
+                opacity: 0;
+                transform: scale3d(0, 1, 1);
             }
-            60% {
-                width: 100%;
-                height: 20%;
+            40% {
+                opacity: 1;
             }
             100% {
-                background-color: #C78693;
-                transform: translateY(0);
+                opacity: 0;
+                transform: scale3d(1, 1, 1);
             }
         }
         &__item--yellow {
+            background-color: #C7C486;
             animation-name: trans-yellow;
             animation-iteration-count: infinite;
             animation-duration: 1s;
@@ -54,18 +57,19 @@
         }
         @keyframes trans-yellow {
             0% {
-                transform: translateY(40px);
+                opacity: 0;
+                transform: scale3d(0, 1, 1);
             }
-            60% {
-                width: 100%;
-                height: 20%;
+            40% {
+                opacity: 1;
             }
             100% {
-                background-color: #C7C486;
-                transform: translateY(0);
+                opacity: 0;
+                transform: scale3d(1, 1, 1);
             }
         }
         &__item--green {
+            background-color: #86C786;
             animation-name: trans-green;
             animation-iteration-count: infinite;
             animation-duration: 1s;
@@ -74,18 +78,19 @@
         }
         @keyframes trans-green {
             0% {
-                transform: translateY(40px);
+                opacity: 0;
+                transform: scale3d(0, 1, 1);
             }
-            60% {
-                width: 100%;
-                height: 20%;
+            40% {
+                opacity: 1;
             }
             100% {
-                background-color: #86C786;
-                transform: translateY(0);
+                opacity: 0;
+                transform: scale3d(1, 1, 1);
             }
         }
         &__item--blue {
+            background-color: #869FC7;
             animation-name: trans-blue;
             animation-iteration-count: infinite;
             animation-duration: 1s;
@@ -94,24 +99,24 @@
         }
         @keyframes trans-blue {
             0% {
-                transform: translateY(40px);
+                opacity: 0;
+                transform: scale3d(0, 1, 1);
             }
-            60% {
-                width: 100%;
-                height: 20%;
+            40% {
+                opacity: 1;
             }
             100% {
-                background-color: #869FC7;
-                transform: translateY(0);
+                opacity: 0;
+                transform: scale3d(1, 1, 1);
             }
         }
     }
     &-mess {
-        margin-top: 40px;
+        margin-top: 32px;
         &__text {
             display: inline-block;
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
     }
 }

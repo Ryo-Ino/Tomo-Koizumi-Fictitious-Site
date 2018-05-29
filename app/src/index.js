@@ -63,6 +63,12 @@ const globalMixIn = {
 
 Vue.mixin(globalMixIn);
 
+new Vue({
+    store,
+    router,
+    render: h => h(App)
+}).$mount('#app');
+
 //ローディング
 let loader = document.getElementById('loader');
 
@@ -84,13 +90,10 @@ function display() {
     });
 }
 
-opacity().then(display);
+window.onload = function() {
+    opacity().then(display);
+};
 
-new Vue({
-    store,
-    router,
-    render: h => h(App)
-}).$mount('#app');
 
 //ページ遷移時オーバーレイを付ける
 router.beforeEach((to, from, next) => {

@@ -1,5 +1,3 @@
-@import "preset/variables.scss";
-@import "preset/mixins.scss";
 html {
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -44,17 +42,11 @@ body {
     transition-delay: .6s;
 }
 
-#canvas {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: auto;
+#myCanvas {
+    @include innerMiddle;
+    @include middle(fixed);
     width: 100%;
-    max-width: 1000px;
     height: 100%;
-    max-height: 1000px;
     transition: 1.2s;
     z-index: -1;
 }

@@ -1,7 +1,5 @@
 .p-project {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include innerMiddle;
     overflow: hidden;
     position: absolute;
     top: 0;
@@ -28,10 +26,8 @@
     }
     &-drag::before {
         content: "Let's Go";
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        @include middle();
+        @include innerMiddle;
+        @include middle;
         margin: auto;
         width: 96px;
         height: 96px;
@@ -62,9 +58,10 @@
             width: 100%;
             height: 100%;
             vertical-align: middle;
+            transition: .4s;
         }
         &__image {
-            display: block;
+            display: inline-block;
             margin: 0 auto;
             width: auto;
             max-width: 100%;
@@ -78,6 +75,9 @@
             @media screen and(max-width: $responsive-md) {
                 box-shadow: 0px 16px 8px -8px $color-tspt02;
             }
+        }
+        &__image:hover {
+            border-radius: 50%;
         }
         &__title {
             margin: 1.5rem auto 0;
@@ -100,7 +100,7 @@
         }
         &__image.is-open {
             transform: scale(1, 1);
-            transition-delay: .8s;
+            transition-delay: 1s;
         }
         &__title.is-open {
             opacity: 1;
@@ -109,19 +109,25 @@
         }
     }
     &-more {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: absolute;
         top: 0;
         bottom: 0;
         left: 0px;
+        white-space: nowrap;
         margin: auto;
         width: 160px;
         height: 258px;
+        background-color: $color-main;
+        color: $color-base;
         font-size: .6rem;
         z-index: 10;
-        transition: .4s;
+        transition: $easeOutQuad .4s;
+        &__text {
+            display: inline-block;
+            padding: .5rem 1rem;
+            border-bottom: 1px $color-main solid;
+            transform-origin: left;
+        }
         @media screen and (max-width: $responsive-md) {
             top: auto;
             right: 0;
@@ -131,10 +137,8 @@
         }
     }
     &-more:hover {
-        width: 180px;
-        @media screen and (max-width: $responsive-md) {
-            width: 50%;
-        }
+        background-color: $color-base;
+        color: $color-main;
     }
     &-modal {
         position: fixed;
@@ -153,9 +157,7 @@
             padding: $top-margin02 20px 84px;
         }
         &__wrap {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include innerMiddle;
             position: relative;
             width: 100%;
             height: 100%;

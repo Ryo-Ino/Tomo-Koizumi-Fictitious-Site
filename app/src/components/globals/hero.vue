@@ -38,7 +38,8 @@ export default {
   mounted: function(){
     this.body = document.getElementsByTagName('body');
     this.container = document.getElementById('container');
-    let page = sessionStorage.getItem('heroPage') || 0;
+    this.openClass = document.getElementsByClassName('is-open');
+    let page = 0;
     let lastPage = this.$refs.hrImgs.length-1;
    
     for (let i = 0; i < this.$refs.hrImgs.length; i++) {
@@ -49,28 +50,28 @@ export default {
     setInterval(() => {
       if (page == lastPage) {
         this.$refs.hrImgs[page].style.opacity = '0';
-        sessionStorage.removeItem('heroPage');
         page = 0;
-        sessionStorage.setItem('heroPage', page);
         this.$refs.hrImgs[page].style.opacity = '1';
       }else {
         page++;
-        sessionStorage.setItem('heroPage', page);
         this.$refs.hrImgs[page].style.opacity = '1';
         let prevImg = this.$refs.hrImgs[page].previousElementSibling;
         prevImg.style.opacity = '0';
       }  
     }, 3000);
     
-    //sessionStorageリセット
-    sessionStorage.removeItem('heroPage');  
   },
   methods: {
     heroFade: function(){
       this.open;
     },
-    wheel: function(){
-      this.open;
+    wheel: function(e){
+      e.preventDefault();
+      let  deltaY = e.deltaY ? -(e.deltaY) : e.wheelDelta ? e.wheelDelta : -(e.detail);
+
+      if (deltaY < 0) {
+        this.open;  
+      }
     },
     touchstart: function(e){
       e.preventDefault();
@@ -82,7 +83,10 @@ export default {
     },
     touchend: function(e){
       e.preventDefault();
-      if (this.touchStartY > this.touchMoveY) {
+      let touchResult = this.touchMoveY - this.touchStartY;
+      let rebe = 50;
+
+      if (touchResult < -rebe) {
         this.open;
       }
     }
@@ -91,10 +95,16 @@ export default {
     open: function() {
       this.container.style.opacity = '1';
       this.$store.state.flagOpen = true;
-      this.isFade = this.$store.state.flagOpen;
+      this.isFade = this.$store.state.flagOpen; 
       setTimeout(() => {
         this.body[0].style.overflow = 'visible';
-      }, 100);
+        window.scrollTo(0, 0);
+      }, 500);
+      setTimeout(() => {
+        for (let i = 0; i < this.openClass.length; i++) {
+          this.openClass[i].style.transitionDelay = '0s';
+        }
+      }, 1200);
     }
   }
 }

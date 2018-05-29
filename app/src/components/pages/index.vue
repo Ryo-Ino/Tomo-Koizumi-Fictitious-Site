@@ -1,6 +1,6 @@
 <template><div>
 
-<div id="app" class="p-project" @mousemove="mousepursuit">
+<div class="p-project" @mousemove="mousepursuit" @wheel="wheel">
 
 <button class="p-project-drag c-btn-circle c-skin-01" data-page="text" ref="dragBtn" @mousedown="mousedown" @mousemove="mousemove" @mouseup="mouseup">
   Drag Me
@@ -14,8 +14,8 @@
   </article>
 </div>
 
-<router-link id="more-btn" class="p-project-more c-btn-square c-skin-01" tag="button" to="/more" ref="proMore" @click.native="correction">
-  More Projects
+<router-link id="more-btn" class="p-project-more c-btn-square" tag="button" to="/more" ref="proMore" @click.native="correction">
+ <span class="p-project-more__text">More Projects</span>
 </router-link>
 
 <div class="p-project-modal" :class="{'is-show': isShow}"> 
@@ -74,8 +74,10 @@ export default {
       mousemoveX: 0,
       touchStartX: 0,
       touchMoveX: 0,
+      transNum: 0,
       flagDrag: false,
       flagMove: false,
+      flagWheel: false,
       moreBtn: ''
     }
   },
@@ -102,9 +104,7 @@ export default {
     }else if( getDevice == 'other' ){
       this.$refs.dragBtn.style.display = 'block';
     }
-    //sessionStorageリセット
-    sessionStorage.removeItem('transNum');
-    sessionStorage.removeItem('countModalProject');
+
   },
   methods: {
     mousepursuit: function(e){
@@ -128,7 +128,6 @@ export default {
     mousemove: function(e){
       e.preventDefault();
       if (this.flagDrag == true) {
-        let transNum = parseInt(sessionStorage.getItem('transNum')) || parseInt(0);
         let width = 0;
         let speed = 20;
 
@@ -140,34 +139,29 @@ export default {
         width -= this.$refs.proItems[this.$refs.proItems.length-1].clientWidth;  
 
         if (this.mousedownX < this.mousemoveX) {
-          if(transNum < width){
-            transNum += speed;
-            sessionStorage.setItem('transNum', transNum);
-            this.$refs.proBody.style.transform = 'translate3d(-'+ transNum +'px, 0, 0)';
+          if(this.transNum < width){
+            this.transNum += speed;
+            this.$refs.proBody.style.transform = 'translate3d(-'+ this.transNum +'px, 0, 0)';
           }else{
-            transNum += width - transNum;
-            sessionStorage.setItem('transNum', transNum);
-            this.$refs.proBody.style.transform = 'translate3d(-'+ transNum +'px, 0, 0)';
+            this.transNum += width - this.transNum;
+            this.$refs.proBody.style.transform = 'translate3d(-'+ this.transNum +'px, 0, 0)';
           }
         }else if (this.mousedownX > this.mousemoveX) {
-          if(transNum > 0){
-            transNum -= speed;
-            sessionStorage.setItem('transNum', transNum);
-            this.$refs.proBody.style.transform = 'translate3d(-'+ transNum +'px, 0, 0)'; 
+          if(this.transNum > 0){
+            this.transNum -= speed;
+            this.$refs.proBody.style.transform = 'translate3d(-'+ this.transNum +'px, 0, 0)'; 
           }else{
-            transNum += transNum * -1;
-            sessionStorage.setItem('transNum', transNum);
-            this.$refs.proBody.style.transform = 'translate3d(-'+ transNum +'px, 0, 0)';
+            this.transNum += this.transNum * -1;
+
+            this.$refs.proBody.style.transform = 'translate3d(-'+ this.transNum +'px, 0, 0)';
           }
         }
 
-        if (transNum >= width) {
-          this.moreBtn.style.right = '0px';
-          this.moreBtn.style.left = 'auto';
+        if (this.transNum >= width) {
+          this.moreBtn.style.transform = 'translate3d(calc(100vw - 160px), 0, 0)';
         }
-        if (transNum <= 0) {
-          this.moreBtn.style.right = 'auto';
-          this.moreBtn.style.left = '0px';
+        if (this.transNum <= 0) {
+          this.moreBtn.style.transform = 'translate3d(0, 0, 0)';
         }
 
       }
@@ -178,6 +172,43 @@ export default {
       this.flagDrag = false;
       this.isDrag = true;
     },
+    wheel: function(e){
+      e.preventDefault();
+      let delta = e.deltaY ? -(e.deltaY) : e.wheelDelta ? e.wheelDelta : -(e.detail);
+      let width = 0;
+      let speed = 100;
+
+      for (let i = 0; i < this.$refs.proItems.length; i++) {
+        width += this.$refs.proItems[i].clientWidth;
+      }
+      width -= this.$refs.proItems[this.$refs.proItems.length-1].clientWidth;  
+
+      if (delta < 0) {
+        if(this.transNum < width){
+          this.transNum += speed;
+          this.$refs.proBody.style.transform = 'translate3d(-'+ this.transNum +'px, 0, 0)';
+        }else{
+          this.transNum += width - this.transNum;
+          this.$refs.proBody.style.transform = 'translate3d(-'+ this.transNum +'px, 0, 0)';
+        }
+      }else if (delta > 0) {
+        if(this.transNum > 0){
+          this.transNum -= speed;
+          this.$refs.proBody.style.transform = 'translate3d(-'+ this.transNum +'px, 0, 0)'; 
+        }else{
+          this.transNum += this.transNum * -1;
+          this.$refs.proBody.style.transform = 'translate3d(-'+ this.transNum +'px, 0, 0)';
+        }
+      }
+
+      if (this.transNum >= width) {
+        this.moreBtn.style.transform = 'translate3d(calc(100vw - 160px), 0, 0)';
+      }
+      if (this.transNum <= 0) {
+        this.moreBtn.style.transform = 'translate3d(0, 0, 0)';
+      }
+      
+    },
     touchstart: function(e){
       e.preventDefault();
       this.touchStartX = e.touches[0].pageX;
@@ -185,7 +216,6 @@ export default {
     touchmove: function(e){
       e.preventDefault();
       let width = this.$refs.proBody.clientWidth * this.$refs.proItems.length;
-      let transNum = parseInt(sessionStorage.getItem('transNum')) || parseInt(0);
       let rebe = 25;
 
       this.touchMoveX = e.changedTouches[0].pageX;
@@ -193,17 +223,16 @@ export default {
 
       width -= this.$refs.proBody.clientWidth;
 
-      if (this.touchStartX > this.touchMoveX && transNum < width) {
-        rebe = transNum + rebe;
+      if (this.touchStartX > this.touchMoveX && this.transNum < width) {
+        rebe = this.transNum + rebe;
         this.$refs.proBody.style.transform = 'translate3d(-'+ rebe +'px, 0, 0)';
-      }else if (this.touchStartX < this.touchMoveX && transNum > 0) {
-        rebe = transNum - rebe;
+      }else if (this.touchStartX < this.touchMoveX && this.transNum > 0) {
+        rebe = this.transNum - rebe;
         this.$refs.proBody.style.transform = 'translate3d(-'+ rebe +'px, 0, 0)';
       }
     },
     touchend: function(e){
       e.preventDefault();
-      let transNum = parseInt(sessionStorage.getItem('transNum')) || parseInt(0);
       let width = this.$refs.proBody.clientWidth * this.$refs.proItems.length;
       let move = width / this.$refs.proItems.length;
       let touchResult = this.touchMoveX - this.touchStartX;
@@ -213,17 +242,15 @@ export default {
 
       if(this.flagMove == true){
         if (touchResult > rebe || touchResult < -rebe){
-          if (this.touchStartX > this.touchMoveX && transNum < width) {
-            transNum += move;
-            sessionStorage.setItem('transNum', transNum);
-            this.$refs.proBody.style.transform = 'translate3d(-'+ transNum +'px, 0, 0)';
-          }else if (this.touchStartX < this.touchMoveX && transNum > 0) {
-            transNum -= move;
-            sessionStorage.setItem('transNum', transNum);
-            this.$refs.proBody.style.transform = 'translate3d(-'+ transNum +'px, 0, 0)';
+          if (this.touchStartX > this.touchMoveX && this.transNum < width) {
+            this.transNum += move;
+            this.$refs.proBody.style.transform = 'translate3d(-'+ this.transNum +'px, 0, 0)';
+          }else if (this.touchStartX < this.touchMoveX && this.transNum > 0) {
+            this.transNum -= move;
+            this.$refs.proBody.style.transform = 'translate3d(-'+ this.transNum +'px, 0, 0)';
           }  
         }else{
-            this.$refs.proBody.style.transform = 'translate3d(-'+ transNum +'px, 0, 0)';
+            this.$refs.proBody.style.transform = 'translate3d(-'+ this.transNum +'px, 0, 0)';
         }
       }else{
           let projectData = e.target.dataset;
