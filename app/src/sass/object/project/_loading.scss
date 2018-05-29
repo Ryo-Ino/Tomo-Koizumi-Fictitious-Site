@@ -9,6 +9,7 @@
     background-color: $color-base;
     z-index: 60;
     overflow: hidden;
+    transition: .4s;
     &-obj {
         overflow: hidden;
         width: 96px;

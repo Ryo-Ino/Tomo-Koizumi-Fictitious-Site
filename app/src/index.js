@@ -74,10 +74,8 @@ let loader = document.getElementById('loader');
 
 function opacity() {
     return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('success');
-            loader.style.opacity = '0';
-        }, 2000);
+        resolve('success');
+        loader.style.opacity = '0';
     });
 }
 
@@ -92,15 +90,14 @@ function display() {
 
 window.onload = function() {
     opacity().then(display);
-};
+}
 
-
-//ページ遷移時オーバーレイを付ける
+//オーバーレイ
 router.beforeEach((to, from, next) => {
     store.commit('start');
     next();
 });
-//オーバーレイを消す
+
 router.afterEach((to, from) => {
     setTimeout(() => {
         store.commit('end');
