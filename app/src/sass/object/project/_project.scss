@@ -119,18 +119,21 @@
         font-size: .6rem;
         z-index: 10;
         transition: $easeOutQuad .4s;
-        &__text {
-            display: inline-block;
-            padding: .5rem 1rem;
-            border-bottom: 1px $color-main solid;
-            transform-origin: left;
-        }
         @media screen and (max-width: $responsive-md) {
             top: auto;
             right: 0;
             left: auto;
             width: 50%;
             height: 44px;
+        }
+        &__text {
+            display: inline-block;
+            padding: .5rem 1rem;
+            border-bottom: 1px $color-main solid;
+            @media screen and (max-width: $responsive-md) {
+                padding: 0;
+                border-bottom: none;
+            }
         }
     }
     &-more:hover {
