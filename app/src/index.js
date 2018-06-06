@@ -70,16 +70,16 @@ new Vue({
 }).$mount('#app');
 
 //ローディング
-let loader = document.getElementById('loader');
+const loader = document.getElementById('loader');
 
-function opacity() {
+let opacity = () => {
     return new Promise((resolve, reject) => {
         resolve('success');
         loader.style.opacity = '0';
     });
 }
 
-function display() {
+let display = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve('success');
@@ -88,7 +88,7 @@ function display() {
     });
 }
 
-window.onload = function() {
+window.onload = () => {
     opacity().then(display);
 }
 
