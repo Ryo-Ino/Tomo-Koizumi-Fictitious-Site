@@ -157,12 +157,14 @@ export default {
           }
         }
 
-        if (this.transNum >= width) {
-          this.moreBtn.style.transform = 'translate3d(calc(100vw - 160px), 0, 0)';
-        }
-        if (this.transNum <= 0) {
-          this.moreBtn.style.transform = 'translate3d(0, 0, 0)';
-        }
+        if (!window.matchMedia('(max-width: 768px)').matches) {
+          if (this.transNum >= width) {
+            this.moreBtn.style.transform = 'translate3d(calc(100vw - 160px), 0, 0)';
+          }
+          if (this.transNum <= 0) {
+            this.moreBtn.style.transform = 'translate3d(0, 0, 0)';
+          }
+        } 
 
       }
     },
@@ -201,12 +203,14 @@ export default {
         }
       }
 
-      if (this.transNum >= width) {
-        this.moreBtn.style.transform = 'translate3d(calc(100vw - 160px), 0, 0)';
-      }
-      if (this.transNum <= 0) {
-        this.moreBtn.style.transform = 'translate3d(0, 0, 0)';
-      }
+      if (!window.matchMedia('(max-width: 768px)').matches) {
+        if (this.transNum >= width) {
+          this.moreBtn.style.transform = 'translate3d(calc(100vw - 160px), 0, 0)';
+        }
+        if (this.transNum <= 0) {
+          this.moreBtn.style.transform = 'translate3d(0, 0, 0)';
+        }
+      } 
       
     },
     touchstart: function(e){

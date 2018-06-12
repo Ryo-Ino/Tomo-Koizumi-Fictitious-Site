@@ -8,7 +8,7 @@
     &-section {
         margin-bottom: 88px;
         @media screen and (max-width: $responsive-md) {
-            margin-bottom: 56px;
+            margin-bottom: 72px;
         }
     }
     &-section:last-child {
@@ -29,7 +29,7 @@
         }
         &__box:first-child {
             @media screen and (max-width: $responsive-md) {
-                margin-bottom: 1.5rem;
+                margin-bottom: 1rem;
             }
         }
         &__title {
@@ -71,11 +71,10 @@
             margin-right: 32px;
             @media screen and (max-width: $responsive-md) {
                 margin-right: auto;
-                margin-bottom: 16px;
+                margin-bottom: .5rem;
             }
         }
         &__description {
-            padding: 5px;
             line-height: 1.8rem;
             letter-spacing: 1.6pt;
             font-size: 1rem;
@@ -108,7 +107,7 @@
             margin-right: 32px;
             @media screen and (max-width: $responsive-md) {
                 margin-right: auto;
-                margin-bottom: 16px;
+                margin-bottom: .5rem;
             }
         }
         &__title {

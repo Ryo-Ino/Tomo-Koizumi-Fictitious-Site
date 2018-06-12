@@ -19658,7 +19658,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/jetkys10/Desktop/Tomo-Koizumi-Fictitious-Site/app/src/App.vue"
+Component.options.__file = "/Users/jetkys10/Desktop/workspace/Tomo-Koizumi-Fictitious-Site/app/src/App.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] App.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -19698,7 +19698,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/jetkys10/Desktop/Tomo-Koizumi-Fictitious-Site/app/src/components/pages/about.vue"
+Component.options.__file = "/Users/jetkys10/Desktop/workspace/Tomo-Koizumi-Fictitious-Site/app/src/components/pages/about.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] about.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -19738,7 +19738,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/jetkys10/Desktop/Tomo-Koizumi-Fictitious-Site/app/src/components/pages/contact.vue"
+Component.options.__file = "/Users/jetkys10/Desktop/workspace/Tomo-Koizumi-Fictitious-Site/app/src/components/pages/contact.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] contact.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -19778,7 +19778,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/jetkys10/Desktop/Tomo-Koizumi-Fictitious-Site/app/src/components/pages/index.vue"
+Component.options.__file = "/Users/jetkys10/Desktop/workspace/Tomo-Koizumi-Fictitious-Site/app/src/components/pages/index.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -19818,7 +19818,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/jetkys10/Desktop/Tomo-Koizumi-Fictitious-Site/app/src/components/pages/moreproject.vue"
+Component.options.__file = "/Users/jetkys10/Desktop/workspace/Tomo-Koizumi-Fictitious-Site/app/src/components/pages/moreproject.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] moreproject.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -19938,25 +19938,25 @@ new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 }).$mount('#app');
 
 //ローディング
-let loader = document.getElementById('loader');
+const loader = document.getElementById('loader');
 
-function opacity() {
+let opacity = () => {
     return new Promise((resolve, reject) => {
         resolve('success');
         loader.style.opacity = '0';
     });
-}
+};
 
-function display() {
+let display = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve('success');
             loader.style.display = 'none';
         }, 500);
     });
-}
+};
 
-window.onload = function () {
+window.onload = () => {
     opacity().then(display);
 };
 
@@ -21002,11 +21002,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           }
         }
 
-        if (this.transNum >= width) {
-          this.moreBtn.style.transform = 'translate3d(calc(100vw - 160px), 0, 0)';
-        }
-        if (this.transNum <= 0) {
-          this.moreBtn.style.transform = 'translate3d(0, 0, 0)';
+        if (!window.matchMedia('(max-width: 768px)').matches) {
+          if (this.transNum >= width) {
+            this.moreBtn.style.transform = 'translate3d(calc(100vw - 160px), 0, 0)';
+          }
+          if (this.transNum <= 0) {
+            this.moreBtn.style.transform = 'translate3d(0, 0, 0)';
+          }
         }
       }
     },
@@ -21045,11 +21047,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
       }
 
-      if (this.transNum >= width) {
-        this.moreBtn.style.transform = 'translate3d(calc(100vw - 160px), 0, 0)';
-      }
-      if (this.transNum <= 0) {
-        this.moreBtn.style.transform = 'translate3d(0, 0, 0)';
+      if (!window.matchMedia('(max-width: 768px)').matches) {
+        if (this.transNum >= width) {
+          this.moreBtn.style.transform = 'translate3d(calc(100vw - 160px), 0, 0)';
+        }
+        if (this.transNum <= 0) {
+          this.moreBtn.style.transform = 'translate3d(0, 0, 0)';
+        }
       }
     },
     touchstart: function (e) {
@@ -21431,7 +21435,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/jetkys10/Desktop/Tomo-Koizumi-Fictitious-Site/app/src/components/globals/footer.vue"
+Component.options.__file = "/Users/jetkys10/Desktop/workspace/Tomo-Koizumi-Fictitious-Site/app/src/components/globals/footer.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] footer.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -21471,7 +21475,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/jetkys10/Desktop/Tomo-Koizumi-Fictitious-Site/app/src/components/globals/header.vue"
+Component.options.__file = "/Users/jetkys10/Desktop/workspace/Tomo-Koizumi-Fictitious-Site/app/src/components/globals/header.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] header.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -21511,7 +21515,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/jetkys10/Desktop/Tomo-Koizumi-Fictitious-Site/app/src/components/globals/hero.vue"
+Component.options.__file = "/Users/jetkys10/Desktop/workspace/Tomo-Koizumi-Fictitious-Site/app/src/components/globals/hero.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] hero.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -21551,7 +21555,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/jetkys10/Desktop/Tomo-Koizumi-Fictitious-Site/app/src/components/globals/navigation.vue"
+Component.options.__file = "/Users/jetkys10/Desktop/workspace/Tomo-Koizumi-Fictitious-Site/app/src/components/globals/navigation.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] navigation.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -21591,7 +21595,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/jetkys10/Desktop/Tomo-Koizumi-Fictitious-Site/app/src/components/globals/scrollTop.vue"
+Component.options.__file = "/Users/jetkys10/Desktop/workspace/Tomo-Koizumi-Fictitious-Site/app/src/components/globals/scrollTop.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] scrollTop.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -21631,7 +21635,7 @@ var Component = __webpack_require__(0)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/jetkys10/Desktop/Tomo-Koizumi-Fictitious-Site/app/src/components/globals/trans.vue"
+Component.options.__file = "/Users/jetkys10/Desktop/workspace/Tomo-Koizumi-Fictitious-Site/app/src/components/globals/trans.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] trans.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -21806,7 +21810,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "p-profile-main__box"
   }, [_c('h2', {
     staticClass: "p-profile-main__title c-heading-02"
-  }, [_vm._v("Tomo Koizumi")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Tomotaka Koizumi")])]), _vm._v(" "), _c('div', {
     staticClass: "p-profile-main__box"
   }, [_c('img', {
     staticClass: "p-profile-main__image",

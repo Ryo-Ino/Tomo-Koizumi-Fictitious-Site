@@ -8,7 +8,7 @@
 
       <div class="p-profile-main">
         <div class="p-profile-main__box">
-          <h2 class="p-profile-main__title c-heading-02">Tomo Koizumi</h2>
+          <h2 class="p-profile-main__title c-heading-02">Tomotaka Koizumi</h2>
         </div>
         <div class="p-profile-main__box">
           <img class="p-profile-main__image" src="images/profile.jpg" alt="">
