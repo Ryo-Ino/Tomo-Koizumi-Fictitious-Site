@@ -21,11 +21,12 @@ body {
 body {
     overflow: hidden;
     background-color: $color-base;
-    font-family: $sans-serif;
+    font-family: $sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
     font-weight: 400;
     letter-spacing: .8pt;
     -webkit-text-size-adjust: 100%;
     -webkit-overflow-scrolling: touch;
+    transition: ease-in .4s;
 }
 
 #wrap {

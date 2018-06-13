@@ -57,10 +57,10 @@ export default {
     };
   },
   methods:{
-    handleScroll() {
+    handleScroll(e) {
       this.scrollY = window.scrollY;
     },
-    trans: function(){
+    anime: function(){
       let item = document.getElementsByClassName('p-project-menu__item');
       let display = document.getElementsByClassName('p-project-display');
       console.log(item);
