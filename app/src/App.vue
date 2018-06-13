@@ -65,11 +65,11 @@ export default {
       let display = document.getElementsByClassName('p-project-display');
       console.log(item);
 
-      for (var i = 0; i < item.length; i++){
+      for (let i = 0; i < item.length; i++){
         item[i].style.transform = 'matrix(1, 0, 0, 1, 0, 0)';
         item[i].style.transitionDelay = '1.'+[i*2]+'s';
       }
-      for (var i = 0; i < display.length; i++) {
+      for (let i = 0; i < display.length; i++) {
         display[i].style.transform = 'scale(1,1)';
       }
     },

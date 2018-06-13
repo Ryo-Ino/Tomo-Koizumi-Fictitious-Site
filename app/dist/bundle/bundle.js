@@ -20384,11 +20384,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       let display = document.getElementsByClassName('p-project-display');
       console.log(item);
 
-      for (var i = 0; i < item.length; i++) {
+      for (let i = 0; i < item.length; i++) {
         item[i].style.transform = 'matrix(1, 0, 0, 1, 0, 0)';
         item[i].style.transitionDelay = '1.' + [i * 2] + 's';
       }
-      for (var i = 0; i < display.length; i++) {
+      for (let i = 0; i < display.length; i++) {
         display[i].style.transform = 'scale(1,1)';
       }
     }
@@ -21113,6 +21113,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
       }
       this.flagMove = false;
+
+      if (!window.matchMedia('(max-width: 768px)').matches) {
+        if (this.transNum >= width) {
+          this.moreBtn.style.transform = 'translate3d(calc(100vw - 160px), 0, 0)';
+        }
+        if (this.transNum <= 0) {
+          this.moreBtn.style.transform = 'translate3d(0, 0, 0)';
+        }
+      }
     },
     modal: function (e) {
       e.preventDefault();
